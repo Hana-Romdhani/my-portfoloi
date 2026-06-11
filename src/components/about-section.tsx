@@ -2,31 +2,31 @@ import { useInView } from "@/hooks/use-in-view";
 import { cn } from "@/lib/utils";
 import { Sparkles, Heart } from "lucide-react";
 
-const techBadges = [
-  "React",
-  "TypeScript",
-  "Node.js",
-  "NestJS",
-  "MongoDB",
-  "MySQL",
-  "jenkins",
-  "AWS",
-  "Docker",
-  "GraphQL",
-  "REST APIs",
-  "Redis",
-  "Tailwind CSS",
-  "Git",
-  "GitHub Actions",
-  "SonarQube",
-  "Nginx",
-  "LLaMA 3.1",
-  "OpenAI API",
-  "WebSockets",
-  "OAuth",
-  "Firebase",
-  "IA assistant development",
-];
+// const techBadges = [
+//   "React",
+//   "TypeScript",
+//   "Node.js",
+//   "NestJS",
+//   "MongoDB",
+//   "MySQL",
+//   "jenkins",
+//   "AWS",
+//   "Docker",
+//   "GraphQL",
+//   "REST APIs",
+//   "Redis",
+//   "Tailwind CSS",
+//   "Git",
+//   "GitHub Actions",
+//   "SonarQube",
+//   "Nginx",
+//   "LLaMA 3.1",
+//   "OpenAI API",
+//   "WebSockets",
+//   "OAuth",
+//   "Firebase",
+//   "IA assistant development",
+// ];
 
 export function AboutSection() {
   const { ref, isInView } = useInView({ threshold: 0.2 });
@@ -41,62 +41,40 @@ export function AboutSection() {
           )}
         >
           <p className="text-primary font-medium mb-4">About Me</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-balance">
-            Passionate about turning{" "}
-            <span className="gradient-text">ideas into impact</span> from
-            concept to deployment
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-balance gradient-text">
+            Full-stack engineer | AI Integrator  | DevOps Enthusiast
           </h2>
 
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
               I'm{" "}
               <span className="text-foreground font-medium">Hana Romdhani</span>
-              , a full-stack engineer with a genuine love for building things
-              that work and work well. I started with a Bachelor's degree in
-              Information Systems Development from ISET in 2021, then pushed
-              further with an Engineering degree in IT, specialized in Software
-              Engineering, from ESPRIT, graduating in January 2026 with honors
-              and a grade of{" "}
-              <span className="text-foreground font-medium">16/20</span>.
+              , a software engineer specialized in web and internet
+              technologies, graduated with honors from  <a href="https://www.esprit.tn" target="_blank" rel="noopener noreferrer"  className="text-primary underline">ESPRIT</a> in January 2026.
             </p>
             <p>
-              Along the way, I didn't just study software{" "}
-              <Sparkles className="inline-block w-4 h-4 mb-1 text-foreground" />{" "}
-              I built it. Through internships and hands-on projects, I got to
-              touch every part of the process: designing interfaces people
-              actually enjoy using, architecting backends that hold up, and
-              shipping with CI/CD pipelines that make deployment feel
-              effortless.
+              Through my academic journey and internships, I developed an
+              engineering mindset that drives me to build scalable
+              architectures, solve problems efficiently, and stay focused on
+              quality — while collaborating closely with teams to reach shared
+              goals.
             </p>
             <p>
-              My final-year project is the one I'm most proud of{" "}
-              <Heart className="inline-block w-4 h-4 mb-1 text-foreground" />{" "}
-              <span className="text-foreground font-medium">XPlanB</span>, a
-              collaborative document-sharing and personal well-being platform
-              built during my internship at TSE Consulting. I took it from a
-              blank page to a fully deployed product: real-time collaboration,
-              an AI assistant powered by LLaMA 3.1, productivity tracking, focus
-              sessions, all tied together with a complete CI/CD pipeline using
-              GitHub Actions, Docker, SonarQube, and Nginx.
+              My standout project is XPlanB — a collaborative document-sharing
+              and well-being platform I took from zero to production during my
+              internship at TSE Consulting. It features real-time collaboration,
+              an AI assistant powered by LLaMA 3.1, productivity analytics, and
+              focus-session tooling, all deployed with a complete DevOps
+              pipeline using React, NestJS, MongoDB, Docker, GitHub Actions,
+              Nginx, and SonarQube.
             </p>
             <p>
-              My go-to stack is{" "}
-              <span className="text-foreground font-medium">
-                React, NestJS, MongoDB, and Docker
-              </span>
-              , but what I care about most is the thinking behind the code{" "}
-              <Sparkles className="inline-block w-4 h-4 mb-1 text-foreground" />{" "}
-              building software that solves real problems, not just software
-              that runs.
-            </p>
-            <p>
-              I'm currently looking for a full-time role where I can keep
-              growing, keep building, and be part of a team that genuinely cares
-              about what they ship.
+              Currently open to full-time full-stack or software engineering
+              roles where the bar is high and the work is real.
             </p>
           </div>
 
-          <div className="mt-10">
+          {/* <div className="mt-10">
             <p className="text-sm text-muted-foreground mb-4 text-center">
               Technologies I work with
             </p>
@@ -116,7 +94,7 @@ export function AboutSection() {
                 </span>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

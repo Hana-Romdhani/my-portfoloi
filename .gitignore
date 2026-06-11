@@ -22,6 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+// oklch(0.5 0.02 60)
 
 # Vite
 .vite
