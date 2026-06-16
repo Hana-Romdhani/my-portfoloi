@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Software_Engine_svg from '../assets/icon/Software_Engine_svg.svg'
+import Software_Engine_svg from '../../assets/icon/Software_Engine_svg.svg'
 
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   ArrowDown,
   Github,
@@ -6,11 +6,8 @@ import {
   Mail,
   Phone,
   Download,
-  HandIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import PanoramaViewer from "./ui/PanoramaViewer";
-//import meimage from '../assets/img/360interactif.png'
 import image_software from "../assets/img/Software engineer.png";
 export function HeroSection() {
   const textRef = useRef<HTMLSpanElement>(null);
@@ -55,12 +52,7 @@ export function HeroSection() {
 
     type();
   }, []);
-  const [hintVisible, setHintVisible] = useState(true);
 
-  const handleDragStart = () => {
-    // Cache le hint après le 1er glissement
-    if (hintVisible) setHintVisible(false);
-  };
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-[128px] animate-pulse-glow" />
@@ -87,30 +79,12 @@ export function HeroSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Notification glissement
-      <div
-        className={`
-          absolute -bottom-3 left-1/2 -translate-x-1/2
-          flex items-center gap-1.5
-          bg-black/70 text-white text-xs
-          px-3 py-1.5 rounded-full whitespace-nowrap
-          pointer-events-none select-none
-          transition-opacity duration-500
-          ${hintVisible ? "opacity-100" : "opacity-0"}
-        `}
-      >
-        <HandIcon />
-        <span>Glisse pour explorer</span>
-        <svg width="20" height="8" viewBox="0 0 20 8" fill="none">
-          <path d="M1 4H19M14 1L19 4L14 7" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div> */}
           </div>
 
           <div className="text-center md:text-left flex-1">
             <p
               className="text-muted-foreground text-lg mb-4 animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
+              style={{ animationDelay: "0.25s" }}
             >
               Hello, I&apos;m
             </p>
@@ -137,7 +111,15 @@ export function HeroSection() {
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0 mb-12 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.8s" }}
             >
-              Building digital experiences where engineering precision meets beautiful design for humans and AI.
+              Building digital experiences where engineering precision meets
+              beautiful design for humans and AI.
+            </p>
+            <p
+              className="text-xs font-bold uppercase tracking-widest text-muted-foreground max-w-2xl mx-auto md:mx-0 mb-12 animate-fade-in-up"
+              style={{ animationDelay: "0.8s" }}
+            >
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-gradient-start animate-pulse" />{" "}
+              AVAILABLE FOR FREELANCE & CONTRACT
             </p>
 
             <div
@@ -167,7 +149,7 @@ export function HeroSection() {
               >
                 <a href="/cv.pdf" download>
                   <Download size={20} />
-                  Download CV
+                  Get My Resume
                 </a>
               </Button>
             </div>

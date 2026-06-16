@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Send, Github, Linkedin, Mail, Twitter, MapPin } from 'lucide-react'
+import { Send, Github, Linkedin, Mail,  MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useInView } from '@/hooks/use-in-view'
 import { cn } from '@/lib/utils'
@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils'
 const socialLinks = [
   { icon: Github, href: 'https://github.com/Hana-Romdhani', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
   { icon: Mail, href: 'mailto:hanaromdhani98@gmail.com', label: 'Email' },
 ]
 
@@ -46,9 +45,8 @@ export function ContactSection() {
           'text-center mb-16 transition-all duration-700',
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         )}>
-          <p className="text-primary font-medium mb-4">Get In Touch</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Let&apos;s <span className="gradient-text">Connect</span>
+            Let&apos;s <span className="gradient-text">Get In Touch</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind or just want to chat? I&apos;d love to hear from you.

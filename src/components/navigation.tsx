@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 import Software_Engine_svg from '../assets/icon/Software_Engine_svg.svg'
 const navItems = [
  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Internship Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Path', href: '#education' },
   { label: 'Languages', href: '#languages' },
-  { label: 'Certificates', href: '#certificates' },
   { label: 'Contact', href: '#contact' },
 ]
 

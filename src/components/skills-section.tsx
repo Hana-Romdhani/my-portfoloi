@@ -1,137 +1,241 @@
-import { useInView } from '@/hooks/use-in-view'
-import { cn } from '@/lib/utils'
+import { useState } from "react";
+import { useInView } from "@/hooks/use-in-view";
+import { cn } from "@/lib/utils";
+import {
+  Cpu,
+  Code,
+  Database,
+  Zap,
+  Palette,
+  Building,
+  Boxes,
+  GitBranch,
+  Server,
+  Clock,
+  Container,
+  GitCommit,
+  Workflow,
+  MessageSquare,
+  Mic,
+  Users,
+  ClipboardList,
+  Lightbulb,
+  PenTool,
+  MousePointer,
+  Cloud,
+  ShieldCheck,
+  Network,
+  BarChart2,
+  Settings,
+  Archive,
+  GitPullRequest,
+  Triangle,
+  Terminal,
+} from "lucide-react";
 
-const skillCategories = [
+const skillsData = [
   {
-    title: 'Frontend',
+    category: "LANGUAGES",
     skills: [
-      { name: 'React', level: 95 },
-      { name: 'Next.js', level: 92 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'Tailwind CSS', level: 94 },
-      { name: 'Vue.js', level: 75 },
+      { name: "JavaScript", level: "EXPERT", progress: 92, icon: Code },
+      { name: "TypeScript", level: "EXPERT", progress: 90, icon: Code },
+      { name: "Python", level: "ADVANCED", progress: 84, icon: Code },
+      { name: "Java", level: "ADVANCED", progress: 86, icon: Code },
+      { name: "C#", level: "ADVANCED", progress: 80, icon: Code },
+      { name: "SQL", level: "ADVANCED", progress: 85, icon: Database },
+      { name: "NoSQL", level: "ADVANCED", progress: 85, icon: Database },
+      { name: "Bash / Shell", level: "ADVANCED", progress: 80, icon: Terminal },
     ],
   },
   {
-    title: 'Backend',
+    category: "FRONT END",
     skills: [
-      { name: 'Node.js', level: 88 },
-      { name: 'Python', level: 82 },
-      { name: 'GraphQL', level: 85 },
-      { name: 'REST APIs', level: 92 },
-      { name: 'Express', level: 88 },
+      { name: "React.js", progress: 95, icon: Code },
+      { name: "Angular", progress: 88, icon: Building },
+      { name: "HTML/CSS", progress: 94, icon: Palette },
+      { name: "Bootstrap", progress: 94, icon: Boxes },
+      { name: "Tailwind CSS", progress: 94, icon: Zap },
+      { name: "Angular Material UI", progress: 82, icon: Boxes },
     ],
   },
   {
-    title: 'Database',
+    category: "BACK END",
     skills: [
-      { name: 'PostgreSQL', level: 85 },
-      { name: 'MongoDB', level: 88 },
-      { name: 'Redis', level: 78 },
-      { name: 'Prisma', level: 86 },
-      { name: 'Firebase', level: 80 },
+      { name: "Node.js", progress: 88, icon: Server },
+      { name: "Express.js", progress: 86, icon: Server },
+      { name: "NestJS", progress: 85, icon: Building },
+      { name: "Spring Boot", progress: 84, icon: Code },
+      { name: "Django", progress: 80, icon: Code },
+      { name: "Laravel", progress: 80, icon: Code },
+      { name: "ASP.NET Core", progress: 78, icon: Code },
+      { name: "GraphQL", progress: 85, icon: Zap },
+      { name: "REST APIs", progress: 92, icon: GitBranch },
+      { name: "MongoDB", progress: 88, icon: Database },
+      { name: "MySQL", progress: 85, icon: Database },
     ],
   },
   {
-    title: 'DevOps & Tools',
+    category: "A.I",
     skills: [
-      { name: 'Git', level: 92 },
-      { name: 'Docker', level: 82 },
-      { name: 'AWS', level: 78 },
-      { name: 'CI/CD', level: 85 },
-      { name: 'Vercel', level: 90 },
+      { name: "LLM Integration", level: "ADVANCED", progress: 85, icon: Cpu },
+      { name: "Voice Recognition", level: "ADVANCED", progress: 82, icon: Mic },
+      { name: "Prompt Engineering", level: "EXPERT", progress: 88, icon: Code },
+      {
+        name: "Vector Databases",
+        level: "ADVANCED",
+        progress: 80,
+        icon: Database,
+      },
+      { name: "AI Agents", level: "ADVANCED", progress: 78, icon: Zap },
+      {
+        name: "Chatbot Integration",
+        level: "INTERMEDIATE",
+        progress: 73,
+        icon: MessageSquare,
+      },
+      { name: "ML Basics", level: "INTERMEDIATE", progress: 72, icon: Cpu },
     ],
   },
-]
+  {
+    category: "UI/UX DESIGN",
+    skills: [
+      { name: "Figma", level: "EXPERT", progress: 92, icon: Palette },
+      { name: "Balsamiq", level: "ADVANCED", progress: 85, icon: PenTool },
+      { name: "Design Systems", level: "EXPERT", progress: 90, icon: Boxes },
+      {
+        name: "Prototyping",
+        level: "ADVANCED",
+        progress: 90,
+        icon: MousePointer,
+      },
+      { name: "Wireframing", level: "ADVANCED", progress: 88, icon: PenTool },
+      {
+        name: "Design Thinking",
+        level: "ADVANCED",
+        progress: 85,
+        icon: Lightbulb,
+      },
+      { name: "Accessibility", level: "ADVANCED", progress: 86, icon: Zap },
+      { name: "User Research", level: "ADVANCED", progress: 82, icon: Users },
+      {
+        name: "Tally (Forms & Surveys)",
+        level: "ADVANCED",
+        progress: 80,
+        icon: ClipboardList,
+      },
+    ],
+  },
+  {
+    category:
+      "PROJECT management & COMMUNICATION TOOLS & METHODOLOGIES & concepts",
+    skills: [
+      { name: "Jira", level: "ADVANCED", progress: 88, icon: GitBranch },
+      { name: "Trello", level: "ADVANCED", progress: 84, icon: Boxes },
+      { name: "Draw.io", level: "ADVANCED", progress: 86, icon: Palette },
+      { name: "Notion", level: "ADVANCED", progress: 85, icon: Building },
+      { name: "Slack", level: "ADVANCED", progress: 82, icon: GitCommit },
+      { name: "SCRUM", level: "INTERMEDIATE", progress: 78, icon: Clock },
+      { name: "UML", level: "INTERMEDIATE", progress: 78, icon: Clock },
+      {
+        name: "Google Meets ",
+        level: "ADVANCED",
+        progress: 88,
+        icon: Workflow,
+      },
+      { name: "GitHub ", level: "ADVANCED", progress: 88, icon: Workflow },
+    ],
+  },
+  {
+    category: "DEVOPS PIPELINE",
+    skills: [
+      {
+        name: "GitHub Actions",
+        level: "EXPERT",
+        progress: 90,
+        icon: GitCommit,
+      },
+      { name: "CI/CD", level: "EXPERT", progress: 88, icon: Workflow },
+      { name: "Docker", level: "ADVANCED", progress: 85, icon: Container },
+      { name: "SonarQube", level: "ADVANCED", progress: 82, icon: ShieldCheck },
+      { name: "Nginx", level: "ADVANCED", progress: 83, icon: Server },
+      { name: "Kubernetes", level: "ADVANCED", progress: 80, icon: Network },
+      {
+        name: "Grafana & Prometheus",
+        level: "ADVANCED",
+        progress: 80,
+        icon: BarChart2,
+      },
+      { name: "Jenkins", level: "ADVANCED", progress: 78, icon: Settings },
+      { name: "Nexus", level: "ADVANCED", progress: 78, icon: Archive },
+      {
+        name: "Azure DevOps",
+        level: "ADVANCED",
+        progress: 80,
+        icon: GitPullRequest,
+      },
+      { name: "Vercel", level: "ADVANCED", progress: 85, icon: Triangle },
+      { name: "Render", level: "ADVANCED", progress: 82, icon: Cloud },
+    ],
+  },
+];
 
-function RadialProgress({ value, size = 120, strokeWidth = 8 }: { value: number; size?: number; strokeWidth?: number }) {
-  const radius = (size - strokeWidth) / 2
-  const circumference = radius * 2 * Math.PI
-  const offset = circumference - (value / 100) * circumference
-
-  return (
-    <svg width={size} height={size} className="transform -rotate-90">
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={strokeWidth}
-        className="text-muted/30"
-      />
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        stroke="url(#gradient)"
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeDasharray={circumference}
-        strokeDashoffset={offset}
-        className="transition-all duration-1000 ease-out"
-      />
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#a855f7" />
-          <stop offset="50%" stopColor="#3b82f6" />
-          <stop offset="100%" stopColor="#06b6d4" />
-        </linearGradient>
-      </defs>
-    </svg>
-  )
+interface SkillItemProps {
+  name: string;
+  level: string;
+  progress: number;
+  icon: React.ComponentType<{ className: string }>;
+  index: number;
+  isInView: boolean;
 }
 
-function SkillCard({
-  category,
+function SkillItem({
+  name,
+  level,
+  progress,
+  icon: Icon,
   index,
   isInView,
-}: {
-  category: typeof skillCategories[0]
-  index: number
-  isInView: boolean
-}) {
+}: SkillItemProps) {
   return (
     <div
       className={cn(
-        'glass-card rounded-2xl p-6 transition-all duration-700 hover:border-primary/30',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        "group rounded-3xl border border-slate-700/50 bg-slate-950/80 p-6 transition-all duration-700 hover:border-slate-600/70 hover:bg-slate-900/90",
+        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
       )}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <h3 className="text-xl font-semibold mb-6 text-foreground gradient-text">{category.title}</h3>
-      <div className="space-y-4">
-        {category.skills.map((skill, skillIndex) => (
-          <div key={skill.name} className="flex items-center justify-between gap-4">
-            <span className="text-foreground/80 text-sm font-medium min-w-[100px]">{skill.name}</span>
-            <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-1000 ease-out"
-                style={{
-                  width: isInView ? `${skill.level}%` : '0%',
-                  transitionDelay: `${index * 100 + skillIndex * 100 + 300}ms`,
-                }}
-              />
-            </div>
-            <span className="text-muted-foreground text-xs w-10 text-right">{skill.level}%</span>
-          </div>
-        ))}
+      <div className="flex items-start justify-between mb-4">
+        <Icon className="h-8 w-8 text-slate-400 group-hover:text-primary/60 transition-colors" />
+        <span className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      <h3 className="text-lg font-semibold text-foreground mb-3">{name}</h3>
+
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">
+        {level}
+      </p>
+
+      <div className="h-1.5 w-full rounded-full overflow-hidden bg-slate-800">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-primary via-purple-500 to-amber-500 transition-all duration-1000 ease-out"
+          style={{
+            width: isInView ? `${progress}%` : "0%",
+            transitionDelay: `${index * 80 + 200}ms`,
+          }}
+        />
       </div>
     </div>
-  )
+  );
 }
 
 export function SkillsSection() {
-  const { ref, isInView } = useInView({ threshold: 0.1 })
+  const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [activeCategory, setActiveCategory] = useState<string>("FRONT END");
 
-  const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0)
-  const avgLevel = Math.round(
-    skillCategories.reduce(
-      (acc, cat) => acc + cat.skills.reduce((sum, skill) => sum + skill.level, 0),
-      0
-    ) / totalSkills
-  )
+  const currentSkills =
+    skillsData.find((s) => s.category === activeCategory)?.skills || [];
 
   return (
     <section id="skills" className="py-32 relative">
@@ -140,51 +244,43 @@ export function SkillsSection() {
       </div>
 
       <div className="container mx-auto px-6 relative" ref={ref}>
-        <div className={cn(
-          'text-center mb-16 transition-all duration-700',
-          isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}>
-          <p className="text-primary font-medium mb-4">Expertise</p>
+        <div
+          className={cn(
+            "text-center mb-16 transition-all duration-700",
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+          )}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Technical <span className="gradient-text">Skills</span>
+            <span className="gradient-text">SKILLS</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical proficiency across different domains.
+            A comprehensive overview of my technical proficiency across
+            different domains.
           </p>
         </div>
 
-        <div className={cn(
-          'flex flex-wrap justify-center gap-12 mb-16 transition-all duration-700 delay-200',
-          isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        )}>
-          <div className="text-center">
-            <div className="relative inline-flex items-center justify-center">
-              <RadialProgress value={isInView ? avgLevel : 0} />
-              <span className="absolute text-2xl font-bold text-foreground">{avgLevel}%</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">Average Proficiency</p>
-          </div>
-          <div className="text-center">
-            <div className="relative inline-flex items-center justify-center">
-              <RadialProgress value={isInView ? 85 : 0} />
-              <span className="absolute text-2xl font-bold text-foreground">{totalSkills}</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">Technologies</p>
-          </div>
-          <div className="text-center">
-            <div className="relative inline-flex items-center justify-center">
-              <RadialProgress value={isInView ? 95 : 0} />
-              <span className="absolute text-2xl font-bold text-foreground">5+</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">Years Experience</p>
-          </div>
+        <div className="flex justify-center gap-4 mb-12">
+          {skillsData.map((category) => (
+            <button
+              key={category.category}
+              onClick={() => setActiveCategory(category.category)}
+              className={cn(
+                "rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-300",
+                activeCategory === category.category
+                  ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/50"
+                  : "border border-slate-300 text-slate-600 hover:border-slate-400 hover:text-slate-700 dark:border-slate-700/50 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:text-slate-300",
+              )}
+            >
+              {category.category}
+            </button>
+          ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {skillCategories.map((category, index) => (
-            <SkillCard
-              key={category.title}
-              category={category}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {currentSkills.map((skill, index) => (
+            <SkillItem
+              key={skill.name}
+              {...skill}
               index={index}
               isInView={isInView}
             />
@@ -192,5 +288,6 @@ export function SkillsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
+

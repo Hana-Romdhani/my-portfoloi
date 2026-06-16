@@ -1,9 +1,8 @@
-import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail,  Heart } from 'lucide-react'
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/Hana-Romdhani', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
   { icon: Mail, href: 'mailto:hanaromdhani98@gmail.com', label: 'Email' },
 ]
 
@@ -24,7 +23,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
             <a href="#" className="text-2xl font-bold gradient-text">
-              HR
+              Hanar.
             </a>
             <p className="text-muted-foreground text-sm mt-2 flex items-center gap-1 justify-center md:justify-start">
               Made with <Heart size={14} className="text-red-500 fill-red-500" /> by Hana Romdhani
