@@ -1,18 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { ThemeProvider } from './components/ui/theme-provider'
-import { Navigation } from './components/navigation'
-import { HeroSection } from './components/hero-section'
-import { AboutSection } from './components/about-section'
-import { ProjectsSection } from './components/projects-section'
-import { EducationSection } from './components/Path-section'
-import { SkillsSection } from './components/skills-section'
-import { ContactSection } from './components/contact-section'
-import { Footer } from './components/footer'
-import { ParticlesBackground } from './components/ui/particles-background'
-import { CursorGlow } from './components/ui/cursor-glow'
-import { LoadingScreen } from './components/ui/loading-screen'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "./components/ui/theme-provider";
+import { Navigation } from "./components/navigation";
+import { HeroSection } from "./components/hero-section";
+import { AboutSection } from "./components/about-section";
+import { ProjectsSection } from "./components/projects-section";
+import { EducationSection } from "./components/Path-section";
+import { SkillsSection } from "./components/skills-section";
+import { CertificationsSection } from "./components/certifications-section";
+import { ContactSection } from "./components/contact-section";
+import { Footer } from "./components/footer";
+import { ParticlesBackground } from "./components/ui/particles-background";
+import { CursorGlow } from "./components/ui/cursor-glow";
+import { LoadingScreen } from "./components/ui/loading-screen";
+import "./index.css";
 
 export default function App() {
   return (
@@ -24,18 +25,18 @@ export default function App() {
         <Navigation />
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
+        <SkillsSection /> <CertificationsSection /> <ProjectsSection />
         <EducationSection />
         <ContactSection />
         <Footer />
       </main>
     </ThemeProvider>
-  )
+  );
 }
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
   </StrictMode>,
-)
+);
+

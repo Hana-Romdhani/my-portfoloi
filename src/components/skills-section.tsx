@@ -181,7 +181,7 @@ const skillsData = [
 
 interface SkillItemProps {
   name: string;
-  level: string;
+  level?: string;
   progress: number;
   icon: React.ComponentType<{ className: string }>;
   index: number;
@@ -190,42 +190,70 @@ interface SkillItemProps {
 
 function SkillItem({
   name,
-  level,
   progress,
   icon: Icon,
   index,
   isInView,
 }: SkillItemProps) {
+  const ringRadius = 52;
+  const circumference = 2 * Math.PI * ringRadius;
+  const progressOffset = circumference - (progress / 100) * circumference;
+
   return (
     <div
-      className={cn(
-        "group rounded-3xl border border-slate-700/50 bg-slate-950/80 p-6 transition-all duration-700 hover:border-slate-600/70 hover:bg-slate-900/90",
-        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-      )}
-      style={{ transitionDelay: `${index * 80}ms` }}
+     
     >
-      <div className="flex items-start justify-between mb-4">
-        <Icon className="h-8 w-8 text-slate-400 group-hover:text-primary/60 transition-colors" />
-        <span className="text-xs font-semibold text-slate-500 uppercase tracking-[0.15em]">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+      <div className="relative mx-auto mb-4 h-44 w-44">
+        <svg viewBox="0 0 120 120" className="h-full w-full">
+          <defs>
+            <linearGradient
+              id={`skillProgressGradient-${index}`}
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="#7c3aed" />
+              <stop offset="50%" stopColor="#0ea5e9" />
+              <stop offset="100%" stopColor="#f59e0b" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="60"
+            cy="60"
+            r={ringRadius}
+            fill="none"
+            stroke="rgba(148,163,184,0.18)"
+            strokeWidth="10"
+          />
+          <circle
+            cx="60"
+            cy="60"
+            r={ringRadius}
+            fill="none"
+            stroke={`url(#skillProgressGradient-${index})`}
+            strokeWidth="10"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={isInView ? progressOffset : circumference}
+            style={{
+              transition: "stroke-dashoffset 1s ease-out",
+              transitionDelay: `${index * 80 + 200}ms`,
+            }}
+            transform="rotate(-90 60 60)"
+          />
+        </svg>
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-2">
+          <Icon className="h-10 w-10 text-primary/80 mb-3" />
+          <h3 className="text-base font-semibold text-foreground leading-tight">
+            {name}
+          </h3>
+         
+        </div>
       </div>
 
-      <h3 className="text-lg font-semibold text-foreground mb-3">{name}</h3>
-
-      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">
-        {level}
-      </p>
-
-      <div className="h-1.5 w-full rounded-full overflow-hidden bg-slate-800">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-primary via-purple-500 to-amber-500 transition-all duration-1000 ease-out"
-          style={{
-            width: isInView ? `${progress}%` : "0%",
-            transitionDelay: `${index * 80 + 200}ms`,
-          }}
-        />
-      </div>
+     
     </div>
   );
 }
