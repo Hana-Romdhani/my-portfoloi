@@ -67,19 +67,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-          <div
-            className="flex-shrink-0 animate-fade-in-up relative group"
-            style={{ animationDelay: "0.5s" }}
-          >
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg">
-              {/* <PanoramaViewer src={meimage} alt="Hana Romdhani" size={256} /> */}
-              <img
-                src={image_software}
-                alt="Hana Romdhani"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+         
 
           <div className="text-center md:text-left flex-1">
             <p
@@ -89,12 +77,12 @@ export function HeroSection() {
               Hello, I&apos;m
             </p>
 
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in-up"
+            <h6
+              className="text-2xl md:text-2xl lg:text-8xl font-bold mb-3 animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
               <span className="gradient-text">Hana Romdhani</span>
-            </h1>
+            </h6>
 
             <div
               className="h-12 md:h-16 mb-8 animate-fade-in-up"
