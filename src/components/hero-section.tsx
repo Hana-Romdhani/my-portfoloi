@@ -1,24 +1,18 @@
-import { useEffect, useRef } from "react";
-import {
-  ArrowDown,
-  Github,
-  Linkedin,
-  Mail,
-  Phone,
-  Download,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import image_software from "../assets/img/Software engineer.png";
+import { useEffect, useRef } from 'react';
+import { ArrowDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/primitives';
+import image_software from '../assets/img/image.png';
+
 export function HeroSection() {
   const textRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const roles = [
-      "Software Engineer",
-      "Full Stack Developer",
-      "IA Integrator",
-      "Problem Solver",
-      "Devops Enthusiast",
+      'Software Engineer',
+      'Full Stack Developer',
+      'IA Integrator',
+      'Problem Solver',
+      'Devops Enthusiast',
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -26,7 +20,6 @@ export function HeroSection() {
 
     const type = () => {
       const currentRole = roles[roleIndex];
-
       if (textRef.current) {
         if (isDeleting) {
           textRef.current.textContent = currentRole.substring(0, charIndex - 1);
@@ -35,7 +28,6 @@ export function HeroSection() {
           textRef.current.textContent = currentRole.substring(0, charIndex + 1);
           charIndex++;
         }
-
         if (!isDeleting && charIndex === currentRole.length) {
           setTimeout(() => {
             isDeleting = true;
@@ -45,79 +37,76 @@ export function HeroSection() {
           roleIndex = (roleIndex + 1) % roles.length;
         }
       }
-
-      const speed = isDeleting ? 50 : 100;
+      const speed = isDeleting ? 40 : 80;
       setTimeout(type, speed);
     };
-
     type();
   }, []);
 
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com/Hana-Romdhani', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:hanaromdhani98@gmail.com', label: 'Email' },
+    { icon: Phone, href: 'tel:+21692340405', label: 'Phone' },
+  ];
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-[128px] animate-pulse-glow" />
-      <div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/30 rounded-full blur-[128px] animate-pulse-glow"
-        style={{ animationDelay: "1.5s" }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[150px] animate-pulse-glow"
-        style={{ animationDelay: "3s" }}
-      />
+      {/* Subtle gradient orb */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-         
-
-          <div className="text-center md:text-left flex-1">
+      <div className="section-container py-24 relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
+          {/* Left content */}
+          <div className="text-center lg:text-left flex-1">
             <p
-              className="text-muted-foreground text-lg mb-4 animate-fade-in-up"
-              style={{ animationDelay: "0.25s" }}
+              className="text-muted-foreground text-sm font-medium uppercase tracking-[0.2em] mb-5 animate-fade-in-up"
+              style={{ animationDelay: '0.2s' }}
             >
               Hello, I&apos;m
             </p>
 
-            <h6
-              className="text-2xl md:text-2xl lg:text-8xl font-bold mb-3 animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up"
+              style={{ animationDelay: '0.35s' }}
             >
               <span className="gradient-text">Hana Romdhani</span>
-            </h6>
+            </h1>
 
             <div
-              className="h-12 md:h-16 mb-8 animate-fade-in-up"
-              style={{ animationDelay: "0.6s" }}
+              className="h-10 lg:h-14 mb-8 animate-fade-in-up"
+              style={{ animationDelay: '0.5s' }}
             >
-              <p className="text-2xl md:text-4xl font-light text-foreground/80">
-                <span ref={textRef} className="border-r-2 border-primary pr-1">
-                  Software Engineer
-                </span>
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground/70">
+                <span ref={textRef} className="border-r-2 border-primary/60 pr-1" />
               </p>
             </div>
 
             <p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0 mb-12 leading-relaxed animate-fade-in-up"
-              style={{ animationDelay: "0.8s" }}
+              className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed animate-fade-in-up"
+              style={{ animationDelay: '0.65s' }}
             >
               Building digital experiences where engineering precision meets
               beautiful design for humans and AI.
             </p>
+
             <p
-              className="text-xs font-bold uppercase tracking-widest text-muted-foreground max-w-2xl mx-auto md:mx-0 mb-12 animate-fade-in-up"
-              style={{ animationDelay: "0.8s" }}
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-10 animate-fade-in-up"
+              style={{ animationDelay: '0.75s' }}
             >
-              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-gradient-start animate-pulse" />{" "}
-              AVAILABLE FOR FREELANCE & CONTRACT
+              <span className="inline-flex h-2 w-2 rounded-full bg-primary animate-pulse-soft" />
+              Available for freelance &amp; contract
             </p>
 
             <div
-              className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8 animate-fade-in-up"
-              style={{ animationDelay: "1s" }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-10 animate-fade-in-up"
+              style={{ animationDelay: '0.85s' }}
             >
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-primary-foreground px-8 py-6 text-lg glow-primary transition-all duration-300"
+                className="btn-gradient px-8 py-6 text-base font-semibold glow-primary"
               >
                 <a href="#projects">View Projects</a>
               </Button>
@@ -125,70 +114,61 @@ export function HeroSection() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg transition-all duration-300"
+                className="border-border hover:bg-muted/50 px-8 py-6 text-base font-medium"
               >
                 <a href="#contact">Contact Me</a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-accent/50 hover:bg-accent/10 px-8 py-6 text-lg transition-all duration-300 gap-2"
-              >
-                <a href="/cv.pdf" download>
-                  <Download size={20} />
-                  Get My Resume
-                </a>
               </Button>
             </div>
 
             <div
-              className="flex items-center justify-center md:justify-start gap-6 animate-fade-in-up"
-              style={{ animationDelay: "1.2s" }}
+              className="flex items-center justify-center lg:justify-start gap-4 animate-fade-in-up"
+              style={{ animationDelay: '0.95s' }}
             >
-              <a
-                href="https://github.com/Hana-Romdhani"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="GitHub"
-              >
-                <Github size={24} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a
-                href="mailto:hanaromdhani98@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="Email"
-              >
-                <Mail size={24} />
-              </a>
-              <a
-                href="tel:+21692340405"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="Phone"
-              >
-                <Phone size={24} />
-              </a>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Right - Image */}
+          <div
+            className="relative flex-1 max-w-lg animate-fade-in-up flex items-center justify-center"
+            style={{ animationDelay: '1s' }}
+          >
+            <div className="relative w-full">
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-3xl blur-2xl" />
+              <div className="relative overflow-hidden rounded-2xl border border-border glass-card">
+                <img
+                  src={image_software}
+                  alt="Hana Romdhani - Software Engineer"
+                  className="w-full h-[380px] sm:h-[440px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <a href="#about" aria-label="Scroll to about section">
-            <ArrowDown className="text-muted-foreground" size={28} />
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <a
+            href="#about"
+            aria-label="Scroll to about section"
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-card/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
+          >
+            <ArrowDown className="text-muted-foreground" size={18} />
           </a>
         </div>
       </div>
     </section>
   );
 }
-

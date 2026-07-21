@@ -1,80 +1,69 @@
-import { useInView } from "@/hooks/use-in-view";
-import { cn } from "@/lib/utils";
-import image_side from "../assets/img/sideimage.jpg";
+import { useInView } from '@/hooks/use-in-view';
+import { cn } from '@/lib/utils';
+import image_side from '../assets/img/Software engineer.png';
+import { SectionHeader } from '@/components/ui/primitives/SectionHeader';
 
 export function AboutSection() {
   const { ref, isInView } = useInView({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-32 relative">
-      <div className="container mx-auto px-6" ref={ref}>
+    <section id="about" className="py-28 sm:py-32 relative">
+      <div className="section-container" ref={ref}>
         <div
           className={cn(
-            "transition-all duration-700",
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+            'transition-all duration-700',
+            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
           )}
         >
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-0 lg:gap-2 items-start">
-            {" "}
-          <div className="relative mx-auto w-full max-w-[480px]">
-  
-  {/* Bordure extérieure décorative - vide avec gradient */}
-  <div className="absolute inset-0 rounded-[32px] border border-transparent"
-    style={{
-      background: "linear-gradient(#0f172a, #0f172a) padding-box, linear-gradient(135deg, #7C3AED, #3b82f6, #7C3AED) border-box",
-      borderWidth: "1px",
-    }}
-  />
-
-  {/* Carte principale */}
-  <div className="relative rounded-[32px] border border-slate-700/40 bg-slate-950/80 p-6 shadow-2xl backdrop-blur-xl md:p-8">
-    
-
-    {/* Image */}
-    <div className="overflow-hidden rounded-3xl border border-slate-700/70 shadow-lg">
-      <img
-        src={image_side}
-        alt="About Me"
-        className="w-full object-cover md:h-[520px]"
-      />
-    </div>
-
-    {/* Overlay texte bas */}
-    <div className="absolute bottom-10 left-10 z-10">
-      <p className="mb-1 text-xs uppercase tracking-[0.2em] text-slate-400">
-        Full-stack engineer
-      </p>
-      <h2 className="text-2xl font-bold text-white">Hana Romdhani</h2>
-    </div>
-
-  </div>
-</div>
-            <div className="space-y-8 text-left">
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold text-foreground sm:text-5xl gradient-text">
-                  About Me
-                </h1>
-                <p className="text-xl md:text-xl font-semibold text-foreground/90 gradient-text">
-                  Full-stack engineer | AI Integrator | DevOps Enthusiast
-                </p>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-center">
+            {/* Image column */}
+            <div className="relative mx-auto w-full max-w-md order-2 lg:order-1">
+              <div className="relative rounded-2xl overflow-hidden glass-card p-3">
+                <div className="relative rounded-xl overflow-hidden">
+                  <img
+                    src={image_side}
+                    alt="About Me"
+                    className="w-full object-cover h-[420px] sm:h-[500px]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                </div>
+                <div className="absolute bottom-6 left-6 z-10">
+                  <p className="mb-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
+                    Full-stack engineer
+                  </p>
+                  <h2 className="text-xl font-bold text-foreground">
+                    Hana Romdhani
+                  </h2>
+                </div>
               </div>
+              {/* Decorative accent */}
+              <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-primary/10 rounded-2xl blur-xl" />
+              <div className="absolute -top-3 -left-3 w-20 h-20 bg-secondary/10 rounded-2xl blur-xl" />
+            </div>
 
-              <div className="space-y-5 text-muted-foreground leading-relaxed">
+            {/* Text column */}
+            <div className="space-y-6 text-left order-1 lg:order-2">
+              <SectionHeader
+                title="About Me"
+                subtitle="Full-stack engineer | AI Integrator | DevOps Enthusiast"
+              />
+
+              <div className="space-y-4 text-muted-foreground leading-relaxed text-[15px]">
                 <p>
-                  I'm{" "}
+                  I&apos;m{' '}
                   <span className="text-foreground font-medium">
                     Hana Romdhani
                   </span>
                   , a software engineer specialized in web and internet
-                  technologies, graduated with honors from{" "}
+                  technologies, graduated with honors from{' '}
                   <a
                     href="https://www.esprit.tn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary underline"
+                    className="text-primary font-medium hover:underline underline-offset-4"
                   >
                     ESPRIT
-                  </a>{" "}
+                  </a>{' '}
                   in January 2026.
                 </p>
                 <p>
@@ -105,4 +94,3 @@ export function AboutSection() {
     </section>
   );
 }
-
