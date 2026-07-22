@@ -4,15 +4,19 @@ import Software_Engine_svg from '../../assets/icon/Software_Engine_svg.svg'
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)
   const [isVisible, setIsVisible] = useState(true)
+  const [isFilling, setIsFilling] = useState(false)
 
   useEffect(() => {
+    // trigger fill animation shortly after mount
+    const startFill = setTimeout(() => setIsFilling(true), 50)
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1800)
+    }, 2000)
     const fadeOutTimer = setTimeout(() => {
       setIsVisible(false)
-    }, 2300)
+    }, 2500)
     return () => {
+      clearTimeout(startFill)
       clearTimeout(timer)
       clearTimeout(fadeOutTimer)
     }
@@ -40,8 +44,8 @@ export function LoadingScreen() {
         </span>
         <div className="w-32 h-0.5 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1500 ease-out"
-            style={{ width: isLoading ? '100%' : '100%' }}
+            className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000 ease-out"
+            style={{ width: isFilling ? '100%' : '0%' }}
           />
         </div>
       </div>

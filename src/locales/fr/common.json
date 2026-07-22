@@ -1,0 +1,236 @@
+{
+  "nav": {
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "path": "Parcours",
+    "contact": "Contact",
+    "resume": "CV"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "roles": [
+      "Ingénieure Logiciel",
+      "Développeuse Full Stack",
+      "Intégratrice IA",
+      "Résolveuse de problèmes",
+      "Passionnée DevOps"
+    ],
+    "subtitle": "Je conçois des expériences numériques où la rigueur technique rencontre un design soigné, au service des humains comme de l'intelligence artificielle.",
+    "available": "Disponible pour missions freelance & contractuelles",
+    "viewProjects": "Voir les projets",
+    "contactMe": "Me contacter",
+    "scrollAria": "Aller à la section À propos"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Ingénieure full-stack | Intégratrice IA | Passionnée DevOps",
+    "roleLabel": "Ingénieure full-stack",
+    "paragraphs": [
+      "Je suis Hana Romdhani, ingénieure logiciel spécialisée dans les technologies web et internet, diplômée avec mention de ESPRIT en janvier 2026.",
+      "Au fil de mon parcours académique et de mes stages, j'ai développé une mindset d'ingénieure qui me pousse à concevoir des architectures évolutives, à résoudre les problèmes avec efficacité et à toujours viser l'excellence — tout en collaborant étroitement avec les équipes pour atteindre des objectifs communs.",
+      "Mon projet phare est XPlanB — une plateforme collaborative de partage de documents et de bien-être que j'ai amenée de zéro à la production lors de mon stage chez TSE Consulting. Elle intègre la collaboration en temps réel, un assistant IA propulsé par LLaMA 3.1, des tableaux de productivité et des sessions de concentration, le tout déployé avec un pipeline DevOps complet utilisant React, NestJS, MongoDB, Docker, GitHub Actions, Nginx et SonarQube.",
+      "Je suis actuellement à la recherche d'un poste en ingénierie logiciel ou développement full-stack à temps plein, dans un environnement exigeant et porteur de sens."
+    ]
+  },
+  "skills": {
+    "label": "Expertise",
+    "title": "Compétences Techniques",
+    "subtitle": "Un aperçu complet de ma maîtrise technique à travers différents domaines d'expertise.",
+    "categories": {
+      "LANGUAGES": "Langages",
+      "FRONT END": "Front End",
+      "BACK END": "Back End",
+      "A.I": "Intelligence Artificielle",
+      "UI/UX DESIGN": "Design UI/UX",
+      "PROJECT MANAGEMENT": "Gestion de Projet",
+      "DEVOPS PIPELINE": "Pipeline DevOps"
+    },
+    "items": {
+      "LLM Integration": "Intégration LLM",
+      "Voice Recognition": "Reconnaissance vocale",
+      "Prompt Engineering": "Ingénierie de prompts",
+      "Vector Databases": "Bases de données vectorielles",
+      "AI Agents": "Agents IA",
+      "Chatbot Integration": "Intégration de chatbots",
+      "ML Basics": "Fondamentaux du ML",
+      "Design Systems": "Systèmes de design",
+      "Prototyping": "Prototypage",
+      "Wireframing": "Wireframing",
+      "Design Thinking": "Design Thinking",
+      "Accessibility": "Accessibilité",
+      "User Research": "Recherche utilisateur",
+      "Bash / Shell": "Bash / Shell",
+      "REST APIs": "APIs REST",
+      "Tally (Forms & Surveys)": "Tally (Formulaires & Sondages)"
+    }
+  },
+  "certifications": {
+    "label": "Certifications",
+    "title": "Badges & Certifications",
+    "subtitle": "Certifications vérifiées, badges et formations complémentaires attestant de mon expertise en développement logiciel et en intelligence artificielle.",
+    "prevAria": "Certification précédente",
+    "nextAria": "Certification suivante",
+    "dotAria": "Aller à la certification",
+    "showing": "Affichage de la certification {{current}} sur {{total}}."
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Projets Sélectionnés",
+    "subtitle": "Ce que j'ai créé",
+    "githubAria": "Voir le dépôt GitHub",
+    "demoAria": "Voir la démo en ligne",
+    "caseStudyAria": "Étude de cas",
+    "items": {
+      "cloudsync": {
+        "title": "CloudSync Pro",
+        "description": "Plateforme collaborative en temps réel avec synchronisation avancée de fichiers, contrôle de version et gestion d'équipe."
+      },
+      "aistudio": {
+        "title": "AI Content Studio",
+        "description": "Plateforme intelligente de création de contenu propulsée par le machine learning pour générer, éditer et optimiser du contenu numérique."
+      },
+      "fintrack": {
+        "title": "FinTrack Dashboard",
+        "description": "Tableau de bord complet de suivi financier avec analyses en temps réel, planification budgétaire et perspectives d'investissement."
+      },
+      "ecolife": {
+        "title": "EcoLife Mobile",
+        "description": "Application mobile dédiée au développement durable, aidant les utilisateurs à suivre et réduire leur empreinte carbone grâce à la gamification."
+      },
+      "devconnect": {
+        "title": "DevConnect Hub",
+        "description": "Plateforme de networking professionnel conçue spécifiquement pour les développeurs, avec des fonctionnalités de collaboration et de mentorat."
+      },
+      "smarthome": {
+        "title": "SmartHome Control",
+        "description": "Tableau de bord IoT pour la gestion des appareils domestiques connectés, avec règles d'automatisation, suivi énergétique et commande vocale."
+      }
+    }
+  },
+  "education": {
+    "label": "Parcours",
+    "title": "Mon Expérience & Mon Parcours",
+    "subtitle": "Là où j'ai évolué, ce que j'ai construit",
+    "typeExperience": "Expérience",
+    "typeEducation": "Formation",
+    "entries": {
+      "esprit-eng": {
+        "title": "Diplôme National d'Ingénieur en Informatique",
+        "titleExtra": "(ESPRIT)",
+        "company": "ESPRIT - École Supérieure Privée d'Ingénierie et de Technologie",
+        "location": "Z.I. Chotrana II, Pôle Technologique El Ghazela, 2083, Ariana, Tunisie",
+        "period": "2022 — 2025",
+        "description": "Diplômée avec mention. Spécialisée en développement full-stack, intégration IA et DevOps. J'ai piloté plusieurs projets techniques et maintenu un excellent niveau académique.",
+        "technologies": ["développement web", "intégration IA", "Architectures évolutives", "Tests de qualité", "développement blockchain", "Gestion de projet et travail d'équipe"]
+      },
+      "tse": {
+        "title": "Stagiaire Ingénieure Full Stack / Projet de fin d'études",
+        "company": "TSE Consultant INT",
+        "location": "Mourouj 5, Ben Arous, Tunisie",
+        "period": "Mai 2025 — Décembre 2025",
+        "description": "Développement de XPLANB, une plateforme full-stack innovante pour le partage sécurisé de documents, la collaboration en temps réel, la gestion de productivité et les outils de bien-être (sessions pomodoro). L'application intègre l'authentification utilisateur, la co-écriture de documents en direct, une assistance IA (LLaMA 3.1), la visioconférence et le suivi avancé de la productivité. Création d'un pitch Bunch Market pour valider le modèle économique.",
+        "technologies": ["MongoDB", "Scrum", "React, TypeScript, Vite, Tailwind CSS, Figma, EditorJS", "Nest.js, APIs RESTful, JWT", "WebSocket, Socket.io", "Intégration LLaMA 3.1", "Docker, GitHub Actions, CI/CD", "Intégration Visioconférence", "Git, GitHub, Draw.io, UML, Postman, Trello, Notion"]
+      },
+      "ipact": {
+        "title": "Stagiaire Ingénieure / Développement Full Stack",
+        "company": "IPACT Consult inc.",
+        "location": "Montréal, Québec, Canada",
+        "period": "Juin 2024 — Septembre 2024",
+        "description": "Développement de TAWASLNA-PMS, une plateforme intelligente de gestion communautaire conçue pour les villes smart. Intégration de fonctionnalités avancées et construction d'un tableau de bord sophistiqué pour la gestion du stationnement et des transports.",
+        "technologies": ["AngularJS/Angular Material", "Spring Framework", "MongoDB", "Jenkins", "Docker", "Architecture Monolithique Modulaire", "Trello, Notion, GitHub, Git, Postman, UML, Draw.io", "Tests unitaires", "Tests d'intégration", "SonarQube", "Méthodologie SCRUM Agile"]
+      },
+      "esprit-intern": {
+        "title": "Stagiaire en Développement Web",
+        "company": "ESPRIT - École Supérieure Privée d'Ingénierie et de Technologie",
+        "location": "El Ghazala, Tunis, Tunisie",
+        "period": "Juillet 2023 — Août 2023",
+        "description": [
+          "Développement d'une plateforme de gestion d'offres d'emploi professionnelles (stages et emplois)",
+          "Démonstration d'une grande rigueur et d'un réel enthousiasme",
+          "Participation à des projets de développement web complexes"
+        ],
+        "technologies": ["Framework Symfony", "MySQL", "GitHub", "Git", "Docker"]
+      },
+      "iset": {
+        "title": "Licence Appliquée en Technologies de l'Information",
+        "titleExtra": "Développement des Systèmes d'Information",
+        "company": "Institut Supérieur des Études Technologiques de Béja",
+        "location": "Béja, Tunisie",
+        "period": "Septembre 2018 — Juin 2021",
+        "description": "Diplômée avec mention. Licence nationale appliquée en Technologies de l'Information, spécialisée dans le développement des systèmes d'information. Concentration sur la conception, le développement et la gestion de systèmes d'information répondant aux besoins métier.",
+        "technologies": ["développement web", "Développement d'applications mobiles", "Architectures évolutives"]
+      },
+      "goodwill": {
+        "title": "Stagiaire de Projet de Fin d'Études / Développeuse Logiciel",
+        "company": "Goodwill Consulting",
+        "location": "Cyber Parc, Béja, Tunisie",
+        "period": "Février 2021 — Juin 2021",
+        "description": [
+          "Conception et développement d'une application web de gestion du temps pour aider les entreprises à suivre et gérer efficacement les heures de travail de leurs employés",
+          "Mise en place d'une authentification sécurisée et de contrôles d'accès pour protéger les fonctionnalités du système",
+          "Développement d'un système de notifications en temps réel permettant aux responsables RH de suivre l'activité des employés",
+          "Création d'un tableau de bord complet pour le suivi des heures de travail et de la performance",
+          "Génération de rapports statistiques pour identifier les tendances de productivité",
+          "Application de la méthodologie Agile/Scrum avec contribution au développement itératif, à la planification des sprints et aux livraisons dans les délais",
+          "Rapport d'avancement au responsable du projet"
+        ],
+        "technologies": ["ASP.NET MVC", "Microsoft SQL Server", "Scrum", "Git", "Microsoft Word"]
+      },
+      "bdsi": {
+        "title": "Stagiaire en Développement Web",
+        "company": "Boite de Développement et Services Informatiques (BDSI)",
+        "location": "Bureau N°12 Cyber Park, Béja, Tunisie, Beja 9000",
+        "period": "Janvier 2020 — Février 2020",
+        "description": [
+          "Recueil et analyse des besoins métier pour concevoir une solution web de gestion d'école de conduite",
+          "Conception et développement d'une application web full-stack de zéro",
+          "Développement d'un frontend responsive avec Angular",
+          "Création d'APIs RESTful et de services backend avec Node.js",
+          "Implémentation des fonctionnalités clés : gestion des utilisateurs, planification et manipulation des données",
+          "Collaboration avec l'équipe pour garantir la fonctionnalité et la convivialité de l'application"
+        ],
+        "technologies": ["Angular", "Node.js", "Scrum", "Git", "MySQL"]
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Restons en contact",
+    "subtitle": "Vous avez un projet en tête ou simplement envie d'échanger ? Je serais ravie d'avoir de vos nouvelles. Envoyez-moi un message et je vous répondrai dans les meilleurs délais.",
+    "infoHeading": "Coordonnées",
+    "contactCol": "Contact",
+    "detailsCol": "Détails",
+    "emailRow": "Email",
+    "locationRow": "Localisation",
+    "githubRow": "GitHub",
+    "linkedinRow": "LinkedIn",
+    "locationValue": "Tunisie",
+    "githubValue": "github.com/Hana-Romdhani",
+    "linkedinValue": "linkedin.com",
+    "connectWithMe": "Retrouvez-moi sur",
+    "quote": "La meilleure façon de prédire l'avenir est de le créer.",
+    "quoteAuthor": "Peter Drucker",
+    "form": {
+      "nameLabel": "Nom",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "votre@email.com",
+      "messagePlaceholder": "Parlez-moi de votre projet...",
+      "sending": "Envoi en cours...",
+      "sent": "Message envoyé !",
+      "send": "Envoyer le message",
+      "success": "Merci ! Votre message a été envoyé, je vous répondrai très rapidement."
+    }
+  },
+  "footer": {
+    "madeWith": "Fait avec ♥ par Hana Romdhani",
+    "rights": "Tous droits réservés.",
+    "backToTop": "Retour en haut",
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useInView } from '@/hooks/use-in-view';
 import { cn } from '@/lib/utils';
 import {
@@ -35,7 +36,7 @@ import {
 
 const skillsData = [
   {
-    category: 'LANGUAGES',
+    categoryKey: 'LANGUAGES',
     color: 'from-primary/10 to-primary/5',
     iconBg: 'bg-primary/10 text-primary',
     skills: [
@@ -50,7 +51,7 @@ const skillsData = [
     ],
   },
   {
-    category: 'FRONT END',
+    categoryKey: 'FRONT END',
     color: 'from-secondary/10 to-secondary/5',
     iconBg: 'bg-secondary/10 text-secondary',
     skills: [
@@ -63,7 +64,7 @@ const skillsData = [
     ],
   },
   {
-    category: 'BACK END',
+    categoryKey: 'BACK END',
     color: 'from-accent/10 to-accent/5',
     iconBg: 'bg-accent/10 text-accent-foreground',
     skills: [
@@ -81,37 +82,37 @@ const skillsData = [
     ],
   },
   {
-    category: 'A.I',
+    categoryKey: 'A.I',
     color: 'from-primary/10 to-secondary/5',
     iconBg: 'bg-primary/10 text-primary',
     skills: [
-      { name: 'LLM Integration', icon: Cpu },
-      { name: 'Voice Recognition', icon: Mic },
-      { name: 'Prompt Engineering', icon: Code },
-      { name: 'Vector Databases', icon: Database },
-      { name: 'AI Agents', icon: Zap },
-      { name: 'Chatbot Integration', icon: MessageSquare },
-      { name: 'ML Basics', icon: Cpu },
+      { name: 'LLM Integration', nameKey: 'LLM Integration', icon: Cpu },
+      { name: 'Voice Recognition', nameKey: 'Voice Recognition', icon: Mic },
+      { name: 'Prompt Engineering', nameKey: 'Prompt Engineering', icon: Code },
+      { name: 'Vector Databases', nameKey: 'Vector Databases', icon: Database },
+      { name: 'AI Agents', nameKey: 'AI Agents', icon: Zap },
+      { name: 'Chatbot Integration', nameKey: 'Chatbot Integration', icon: MessageSquare },
+      { name: 'ML Basics', nameKey: 'ML Basics', icon: Cpu },
     ],
   },
   {
-    category: 'UI/UX DESIGN',
+    categoryKey: 'UI/UX DESIGN',
     color: 'from-accent/10 to-primary/5',
     iconBg: 'bg-accent/10 text-accent-foreground',
     skills: [
       { name: 'Figma', icon: Palette },
       { name: 'Balsamiq', icon: PenTool },
-      { name: 'Design Systems', icon: Boxes },
-      { name: 'Prototyping', icon: MousePointer },
-      { name: 'Wireframing', icon: PenTool },
-      { name: 'Design Thinking', icon: Lightbulb },
-      { name: 'Accessibility', icon: Zap },
-      { name: 'User Research', icon: Users },
-      { name: 'Tally (Forms & Surveys)', icon: ClipboardList },
+      { name: 'Design Systems', nameKey: 'Design Systems', icon: Boxes },
+      { name: 'Prototyping', nameKey: 'Prototyping', icon: MousePointer },
+      { name: 'Wireframing', nameKey: 'Wireframing', icon: PenTool },
+      { name: 'Design Thinking', nameKey: 'Design Thinking', icon: Lightbulb },
+      { name: 'Accessibility', nameKey: 'Accessibility', icon: Zap },
+      { name: 'User Research', nameKey: 'User Research', icon: Users },
+      { name: 'Tally (Forms & Surveys)', nameKey: 'Tally (Forms & Surveys)', icon: ClipboardList },
     ],
   },
   {
-    category: 'PROJECT MANAGEMENT',
+    categoryKey: 'PROJECT MANAGEMENT',
     color: 'from-secondary/10 to-accent/5',
     iconBg: 'bg-secondary/10 text-secondary',
     skills: [
@@ -127,7 +128,7 @@ const skillsData = [
     ],
   },
   {
-    category: 'DEVOPS PIPELINE',
+    categoryKey: 'DEVOPS PIPELINE',
     color: 'from-primary/10 to-secondary/5',
     iconBg: 'bg-primary/10 text-primary',
     skills: [
@@ -177,10 +178,11 @@ function SkillItem({ name, icon: Icon, iconBg, index, isInView }: SkillItemProps
 }
 
 export function SkillsSection() {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.1 });
   const [activeCategory, setActiveCategory] = useState<string>('FRONT END');
 
-  const currentCategory = skillsData.find((s) => s.category === activeCategory);
+  const currentCategory = skillsData.find((s) => s.categoryKey === activeCategory);
   const currentSkills = currentCategory?.skills || [];
   const currentIconBg = currentCategory?.iconBg || 'bg-primary/10 text-primary';
 
@@ -199,25 +201,24 @@ export function SkillsSection() {
           )}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">
-            Expertise
+            {t('skills.label')}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-balance">
-            <span className="gradient-text">Technical Skills</span>
+            <span className="gradient-text">{t('skills.title')}</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-            A comprehensive overview of my technical proficiency across
-            different domains.
+            {t('skills.subtitle')}
           </p>
         </div>
 
         {/* Category pills */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {skillsData.map((category) => {
-            const isActive = activeCategory === category.category;
+            const isActive = activeCategory === category.categoryKey;
             return (
               <button
-                key={category.category}
-                onClick={() => setActiveCategory(category.category)}
+                key={category.categoryKey}
+                onClick={() => setActiveCategory(category.categoryKey)}
                 className={cn(
                   'px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap',
                   isActive
@@ -225,7 +226,7 @@ export function SkillsSection() {
                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-transparent hover:border-border',
                 )}
               >
-                {category.category}
+                {t(`skills.categories.${category.categoryKey}`)}
               </button>
             );
           })}
@@ -236,7 +237,7 @@ export function SkillsSection() {
           {currentSkills.map((skill, index) => (
             <SkillItem
               key={skill.name}
-              name={skill.name}
+              name={skill.nameKey ? t(`skills.items.${skill.nameKey}`) : skill.name}
               icon={skill.icon}
               iconBg={currentIconBg}
               index={index}

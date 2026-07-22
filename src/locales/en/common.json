@@ -1,0 +1,236 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "path": "Path",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "roles": [
+      "Software Engineer",
+      "Full Stack Developer",
+      "AI Integrator",
+      "Problem Solver",
+      "DevOps Enthusiast"
+    ],
+    "subtitle": "Building digital experiences where engineering precision meets beautiful design for humans and AI.",
+    "available": "Available for freelance & contract",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "scrollAria": "Scroll to about section"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Full-stack engineer | AI Integrator | DevOps Enthusiast",
+    "roleLabel": "Full-stack engineer",
+    "paragraphs": [
+      "I'm  Hana Romdhani, a software engineer specialized in web and internet technologies, graduated with honors from ESPRIT in January 2026.",
+      "Through my academic journey and internships, I developed an engineering mindset that drives me to build scalable architectures, solve problems efficiently, and stay focused on quality — while collaborating closely with teams to reach shared goals.",
+      "My standout project is XPlanB — a collaborative document-sharing and well-being platform I took from zero to production during my internship at TSE Consulting. It features real-time collaboration, an AI assistant powered by LLaMA 3.1, productivity analytics, and focus-session tooling, all deployed with a complete DevOps pipeline using React, NestJS, MongoDB, Docker, GitHub Actions, Nginx, and SonarQube.",
+      "Currently open to full-time full-stack or software engineering roles where the bar is high and the work is real."
+    ]
+  },
+  "skills": {
+    "label": "Expertise",
+    "title": "Technical Skills",
+    "subtitle": "A comprehensive overview of my technical proficiency across different domains.",
+    "categories": {
+      "LANGUAGES": "Languages",
+      "FRONT END": "Front End",
+      "BACK END": "Back End",
+      "A.I": "A.I",
+      "UI/UX DESIGN": "UI/UX Design",
+      "PROJECT MANAGEMENT": "Project Management",
+      "DEVOPS PIPELINE": "DevOps Pipeline"
+    },
+    "items": {
+      "LLM Integration": "LLM Integration",
+      "Voice Recognition": "Voice Recognition",
+      "Prompt Engineering": "Prompt Engineering",
+      "Vector Databases": "Vector Databases",
+      "AI Agents": "AI Agents",
+      "Chatbot Integration": "Chatbot Integration",
+      "ML Basics": "ML Basics",
+      "Design Systems": "Design Systems",
+      "Prototyping": "Prototyping",
+      "Wireframing": "Wireframing",
+      "Design Thinking": "Design Thinking",
+      "Accessibility": "Accessibility",
+      "User Research": "User Research",
+      "Bash / Shell": "Bash / Shell",
+      "REST APIs": "REST APIs",
+      "Tally (Forms & Surveys)": "Tally (Forms & Surveys)"
+    }
+  },
+  "certifications": {
+    "label": "Credentials",
+    "title": "Badges & Certifications",
+    "subtitle": "Verified certifications, badges, and training highlights that support my software and AI expertise.",
+    "prevAria": "Previous certification",
+    "nextAria": "Next certification",
+    "dotAria": "Go to certification",
+    "showing": "Showing certification {{current}} of {{total}}."
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Featured Projects",
+    "subtitle": "Things I've built",
+    "githubAria": "View GitHub repository",
+    "demoAria": "View live demo",
+    "caseStudyAria": "Case Study",
+    "items": {
+      "cloudsync": {
+        "title": "CloudSync Pro",
+        "description": "A real-time collaborative workspace platform with advanced file syncing, version control, and team management features."
+      },
+      "aistudio": {
+        "title": "AI Content Studio",
+        "description": "An intelligent content creation platform powered by machine learning for generating, editing, and optimizing digital content."
+      },
+      "fintrack": {
+        "title": "FinTrack Dashboard",
+        "description": "A comprehensive financial tracking dashboard with real-time analytics, budget planning, and investment insights."
+      },
+      "ecolife": {
+        "title": "EcoLife Mobile",
+        "description": "A sustainability-focused mobile app helping users track and reduce their carbon footprint through gamification."
+      },
+      "devconnect": {
+        "title": "DevConnect Hub",
+        "description": "A professional networking platform designed specifically for developers with code collaboration and mentorship features."
+      },
+      "smarthome": {
+        "title": "SmartHome Control",
+        "description": "An IoT dashboard for managing smart home devices with automation rules, energy monitoring, and voice control."
+      }
+    }
+  },
+  "education": {
+    "label": "Journey",
+    "title": "My Experience & Journey",
+    "subtitle": "Where I've been, what I've built",
+    "typeExperience": "Experience",
+    "typeEducation": "Education",
+    "entries": {
+      "esprit-eng": {
+        "title": "National Engineering Degree in Computer Science",
+        "titleExtra": "(Diplôme National d'Ingénieur Informatique)",
+        "company": "ESPRIT - Private Higher School of Engineering and Technology",
+        "location": "Z.I. Chotrana II, Pôle Technologique El Ghazela, 2083, Ariana, Tunisia",
+        "period": "2022 — 2025",
+        "description": "Graduated with honors. Specialized in full-stack development, AI integration, and DevOps. Led various technical projects and maintained strong academic performance.",
+        "technologies": ["web development", "AI integration", "Scalable Architectures", "Quality testing", "blockchain development", "Project management and teamwork"]
+      },
+      "tse": {
+        "title": "Full Stack Engineer Intern / End-of-Studies Project",
+        "company": "TSE Consultant INT",
+        "location": "Mourouj 5, Ben Arous, Tunisia",
+        "period": "May 2025 — December 2025",
+        "description": "Developed XPLANB, an innovative full-stack platform for secure document sharing, real-time collaboration, productivity management and wellbeing tools (pomodoro session). The application features user authentication, live document co-writing, AI-powered assistance (LLaMA 3.1), video conferencing, and advanced productivity tracking. Created a Bunch Market pitch to validate the business model and market viability.",
+        "technologies": ["MongoDB", "Scrum", "React, TypeScript, Vite, Tailwind CSS, Figma, EditorJS", "Nest.js, RESTful APIs, JWT", "WebSocket, Socket.io", "LLaMA 3.1 Integration", "Docker, GitHub Actions, CI/CD", "Video Conferencing Integration", "Git, GitHub, Draw.io, UML, Postman, Trello, Notion"]
+      },
+      "ipact": {
+        "title": "Engineering Intern / Full Stack Development",
+        "company": "IPACT Consult inc.",
+        "location": "Montreal, Quebec, Canada",
+        "period": "June 2024 — September 2024",
+        "description": "Developed TAWASLNA-PMS, an intelligent community management platform designed for smart cities. Worked on integrating features and building a sophisticated dashboard for parking and transportation management.",
+        "technologies": ["AngularJS/Angular Material", "Spring Framework", "MongoDB", "Jenkins", "Docker", "Modular Monolith Architecture", "Trello, Notion, GitHub, Git, Postman, UML, Draw.io", "Unit Testing", "Integration Testing", "SonarQube", "SCRUM Agile Methodology"]
+      },
+      "esprit-intern": {
+        "title": "Web Development Intern",
+        "company": "ESPRIT - Private Higher School of Engineering and Technology",
+        "location": "El Ghazala, Tunis, Tunisia",
+        "period": "July 2023 — August 2023",
+        "description": [
+          "Developed a platform for managing professional job offers (internships and employment)",
+          "Demonstrated great rigor and enthusiasm",
+          "Worked on complex web development projects"
+        ],
+        "technologies": ["Symfony Framework", "MySQL", "GitHub", "Git", "Docker"]
+      },
+      "iset": {
+        "title": "Bachelor of Technology in Information Technology",
+        "titleExtra": "Information Systems Development",
+        "company": "Higher Institute of Technological Studies of Beja",
+        "location": "Beja, Tunisia",
+        "period": "September 2018 — June 2021",
+        "description": "Graduated with honors. National Applied Bachelor's Degree in Information Technology, specializing in Information Systems Development. Focused on designing, developing, and managing information systems to meet business needs.",
+        "technologies": ["web development", "Mobile application development", "Scalable Architectures"]
+      },
+      "goodwill": {
+        "title": "Final Year Project Intern / Software Developer Intern",
+        "company": "Goodwill Consulting",
+        "location": "Cyber Parc, Béja, Tunisie",
+        "period": "February 2021 — June 2021",
+        "description": [
+          "Designed and developed a time management web application to help companies track and manage employee working hours efficiently",
+          "Implemented secure user authentication and access control to protect system functionalities",
+          "Built a real-time notification system enabling HR managers to monitor employee activity",
+          "Developed a comprehensive dashboard for tracking employee working hours and performance",
+          "Generated statistical reports to identify productivity trends",
+          "Followed Agile/Scrum methodology, contributing to iterative development, sprint planning, and timely delivery",
+          "Reported progress to the project supervisor"
+        ],
+        "technologies": ["ASP.NET MVC", "Microsoft SQL Server", "Scrum", "Git", "Microsoft Word"]
+      },
+      "bdsi": {
+        "title": "Web Development Intern",
+        "company": "Boite de Développement et Services Informatiques (BDSI)",
+        "location": "Bureau N°12 Cyber Park, Béja, Tunisie, Beja 9000",
+        "period": "January 2020 — February 2020",
+        "description": [
+          "Gathered and analyzed business requirements to design a web-based solution for a driving school management system",
+          "Designed and developed a full-stack web application from scratch",
+          "Built a responsive frontend using Angular",
+          "Developed RESTful APIs and backend services using Node.js",
+          "Implemented core features such as user management, scheduling, and data handling",
+          "Collaborated with team members to ensure application functionality and usability"
+        ],
+        "technologies": ["Angular", "Node.js", "Scrum", "Git", "MySQL"]
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's Get In Touch",
+    "subtitle": "Have a project in mind or just want to chat? I'd love to hear from you. Drop me a message and I'll get back to you as soon as possible.",
+    "infoHeading": "Contact Information",
+    "contactCol": "Contact",
+    "detailsCol": "Details",
+    "emailRow": "Email",
+    "locationRow": "Location",
+    "githubRow": "GitHub",
+    "linkedinRow": "LinkedIn",
+    "locationValue": "Tunisia",
+    "githubValue": "github.com/Hana-Romdhani",
+    "linkedinValue": "linkedin.com",
+    "connectWithMe": "Connect with me",
+    "quote": "The best way to predict the future is to create it.",
+    "quoteAuthor": "Peter Drucker",
+    "form": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "messagePlaceholder": "Tell me about your project...",
+      "sending": "Sending...",
+      "sent": "Message Sent!",
+      "send": "Send Message",
+      "success": "Thanks! Your message has been sent and I'll reply soon."
+    }
+  },
+  "footer": {
+    "madeWith": "Made with ♥ by Hana Romdhani",
+    "rights": "All rights reserved.",
+    "backToTop": "Back to top",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  }
+}

@@ -1,10 +1,14 @@
+import { useTranslation } from 'react-i18next';
 import { useInView } from '@/hooks/use-in-view';
 import { cn } from '@/lib/utils';
-import image_side from '../assets/img/Software engineer.png';
+import image_side from '../assets/img/photi22.png';
 import { SectionHeader } from '@/components/ui/primitives/SectionHeader';
 
 export function AboutSection() {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
+
+  const paragraphs = t('about.paragraphs', { returnObjects: true }) as string[];
 
   return (
     <section id="about" className="py-28 sm:py-32 relative">
@@ -29,7 +33,7 @@ export function AboutSection() {
                 </div>
                 <div className="absolute bottom-6 left-6 z-10">
                   <p className="mb-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                    Full-stack engineer
+                    {t('about.roleLabel')}
                   </p>
                   <h2 className="text-xl font-bold text-foreground">
                     Hana Romdhani
@@ -44,48 +48,15 @@ export function AboutSection() {
             {/* Text column */}
             <div className="space-y-6 text-left order-1 lg:order-2">
               <SectionHeader
-                title="About Me"
-                subtitle="Full-stack engineer | AI Integrator | DevOps Enthusiast"
+                title={t('about.title')}
+                subtitle={t('about.subtitle')}
               />
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-[15px]">
-                <p>
-                  I&apos;m{' '}
-                  <span className="text-foreground font-medium">
-                    Hana Romdhani
-                  </span>
-                  , a software engineer specialized in web and internet
-                  technologies, graduated with honors from{' '}
-                  <a
-                    href="https://www.esprit.tn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary font-medium hover:underline underline-offset-4"
-                  >
-                    ESPRIT
-                  </a>{' '}
-                  in January 2026.
-                </p>
-                <p>
-                  Through my academic journey and internships, I developed an
-                  engineering mindset that drives me to build scalable
-                  architectures, solve problems efficiently, and stay focused on
-                  quality — while collaborating closely with teams to reach
-                  shared goals.
-                </p>
-                <p>
-                  My standout project is XPlanB — a collaborative
-                  document-sharing and well-being platform I took from zero to
-                  production during my internship at TSE Consulting. It features
-                  real-time collaboration, an AI assistant powered by LLaMA 3.1,
-                  productivity analytics, and focus-session tooling, all
-                  deployed with a complete DevOps pipeline using React, NestJS,
-                  MongoDB, Docker, GitHub Actions, Nginx, and SonarQube.
-                </p>
-                <p>
-                  Currently open to full-time full-stack or software engineering
-                  roles where the bar is high and the work is real.
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: paragraphs[0] }} />
+                <p>{paragraphs[1]}</p>
+                <p>{paragraphs[2]}</p>
+                <p>{paragraphs[3]}</p>
               </div>
             </div>
           </div>

@@ -1,21 +1,31 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Download, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import Software_Engine_svg from '../assets/icon/Software_Engine_svg.svg';
 
-const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Path', href: '#education' },
-  { label: 'Contact', href: '#contact' },
+const navKeys = [
+  { key: 'about', href: '#about' },
+  { key: 'skills', href: '#skills' },
+  { key: 'projects', href: '#projects' },
+  { key: 'path', href: '#education' },
+  { key: 'contact', href: '#contact' },
 ];
 
 export function Navigation() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+
+  const navItems = navKeys.map((item) => ({
+    label: t(`nav.${item.key}`),
+    href: item.href,
+  }));
+
+  const resumeUrl = `/${import.meta.env.VITE_RESUME_PDF || 'CV_Hana_Romdhani_2026_AN_1.pdf'}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,12 +60,6 @@ export function Navigation() {
     },
     [],
   );
-
-  const handleResumeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    console.log('Resume selected:', file.name);
-  };
 
   return (
     <header
@@ -110,27 +114,23 @@ export function Navigation() {
           <div className="w-px h-5 bg-border mx-2" />
 
           <div className="relative inline-flex">
-            <input
-              id="resume-upload"
-              type="file"
-              accept=".pdf,.doc,.docx"
-              className="sr-only"
-              onChange={handleResumeUpload}
-            />
-            <label
-              htmlFor="resume-upload"
-              className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-primary/10 px-3.5 py-2 text-sm font-medium text-primary hover:bg-primary/15 transition-all duration-300"
+            <a
+              href={resumeUrl}
+              download
+              className="flex items-center gap-1.5 rounded-lg bg-primary/10 px-3.5 py-2 text-sm font-medium text-primary hover:bg-primary/15 transition-all duration-300"
             >
               <Download size={14} />
-              Resume
-            </label>
+              {t('nav.resume')}
+            </a>
           </div>
 
+          <LanguageSwitcher />
           <ThemeToggle />
         </div>
 
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             type="button"

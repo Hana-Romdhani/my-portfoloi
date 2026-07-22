@@ -7,6 +7,7 @@ import {
   Building2,
 } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useInView } from '@/hooks/use-in-view';
 import { cn } from '@/lib/utils';
 import {
@@ -18,41 +19,43 @@ import {
   PaginationNext,
 } from '@/components/ui/pagination';
 
-const education = [
-  {
+const educationKeys = [
+  'esprit-eng',
+  'tse',
+  'ipact',
+  'esprit-intern',
+  'iset',
+  'goodwill',
+  'bdsi',
+];
+
+const educationMeta: Record<string, {
+  type: 'education' | 'work';
+  status?: 'remote' | 'onsite';
+  companyUrl?: string;
+  companyLogo: string;
+  technologies: string[];
+  highlight: boolean;
+}> = {
+  'esprit-eng': {
     type: 'education',
-    title:
-      "National Engineering Degree in Computer Science (Dipl\u00f4me National d'Ing\u00e9nieur Informatique)",
-    company: 'ESPRIT - Private Higher School of Engineering and Technology',
     companyUrl: 'https://www.esprit.tn/',
     companyLogo: '/src/assets/img/espritlogo.jpeg',
-    location:
-      'Z.I. Chotrana II, P\u00f4le Technologique El Ghazela, 2083, Ariana, Tunisia',
-    period: '2022 \u2014 2025',
-    description:
-      'Graduated with honors. Specialized in full-stack development, AI integration, and DevOps. Led various technical projects and maintained strong academic performance.',
     technologies: [
       'web development',
       'AI integration',
-      'Scalable Architectures [Microservices, Serverless,monolithic, Multi-Module ]',
+      'Scalable Architectures',
       'Quality testing',
       'blockchain development',
       'Project management and teamwork',
     ],
     highlight: true,
   },
-  {
+  'tse': {
     type: 'work',
     status: 'remote',
-    title: 'Full Stack  Engineer Intern / End-of-Studies Project',
-    company: 'TSE Consultant INT  ',
     companyUrl: 'https://www.linkedin.com/company/tse-consultant-int',
     companyLogo: '/src/assets/img/TSELOGO.png',
-    location:
-      '14 bis rue Manzel Bouzalfa, Mourouj 5 Ben Arous Tunisia Mourouj, 5 2074, Tunisie ',
-    period: 'May 2025 \u2014 December 2025',
-    description:
-      'Developed XPLANB, an innovative full-stack platform for secure document sharing, real-time collaboration, productivity management  and wellbeing tools (pomodoro session ) . The application features user authentication, live document co-writing, AI-powered assistance (LLaMA 3.1), video conferencing, and advanced productivity tracking. Created a Bunch Market pitch to validate the business model and market viability.',
     technologies: [
       'MongoDB',
       'Scrum',
@@ -66,17 +69,11 @@ const education = [
     ],
     highlight: true,
   },
-  {
+  'ipact': {
     type: 'work',
     status: 'remote',
-    title: 'Engineering Intern /  Full Stack Development',
-    company: 'IPACT Consult inc. ',
     companyUrl: 'https://www.linkedin.com/company/ipact-consult-inc',
     companyLogo: '/src/assets/img/ipact-logo.png',
-    location: 'Montreal, Quebec, Canada',
-    period: 'June 2024 \u2014 September 2024',
-    description:
-      'Developed TAWASLNA-PMS, an intelligent community management platform designed for smart cities. Worked on integrating features and building a sophisticated dashboard for parking and transportation management.',
     technologies: [
       'AngularJS/Angular Material',
       'Spring Framework',
@@ -84,66 +81,36 @@ const education = [
       'Jenkins',
       'Docker',
       'Modular Monolith Architecture',
-      'trello, Notion, GitHub, Git, Postman , UML, Draw.io',
+      'trello, Notion, GitHub, Git, Postman, UML, Draw.io',
       'Unit Testing',
       'Integration Testing',
-      ' Sonarqube',
+      'Sonarqube',
       'SCRUM Agile Methodology',
     ],
     highlight: false,
   },
-  {
+  'esprit-intern': {
     type: 'work',
-    status: 'remote',
-    title: 'Web Development Intern',
-    company: 'ESPRIT - Private Higher School of Engineering and Technology ',
     companyLogo: '/src/assets/img/espritlogo.jpeg',
-    location: 'El Ghazala, Tunis, Tunisia ',
-    period: 'July 2023 \u2014 August 2023',
-    description: [
-      '- Developed a platform for managing professional job offers (internships and employment)',
-      '- Demonstrated great rigor and enthusiasm',
-      '- Worked on complex web development projects',
-    ],
     technologies: ['Symfony Framework', 'MySQL', 'GitHub', 'Git', 'Docker'],
     highlight: false,
   },
-  {
+  'iset': {
     type: 'education',
-    title:
-      'Bachelor of Technology (B.Tech) in Information Technology /  Information Systems Development',
-    company: 'Higher Institute of Technological Studies of Beja',
     companyUrl: 'https://www.isetb.rnu.tn/',
     companyLogo: '/src/assets/img/iset-logo.png',
-    location: 'Beja, Tunisia',
-    period: 'September 2018 \u2014 June 2021',
-    description:
-      'Graduated with honors. National Applied Bachelor\u2019s Degree in Information Technology, specializing in Information Systems Development. Focused on designing, developing, and managing information systems to meet business needs.',
     technologies: [
       'web development',
       'Mobile application development',
-      'Scalable Architectures [Microservices, Serverless,monolithic, Multi-Module ]',
+      'Scalable Architectures',
     ],
     highlight: true,
   },
-  {
+  'goodwill': {
     type: 'work',
     status: 'onsite',
-    title: 'Final Year Project Intern / Software Developer Intern',
-    company: 'Goodwill Consulting ',
     companyUrl: 'https://goodwill.tn/',
     companyLogo: '/src/assets/img/goodwilllogo.png',
-    location: 'Cyber Parc , P6J4+J24, B\u00e9ja, Tunisie ',
-    period: 'February 2021 \u2014 June 2021',
-    description: [
-      'Designed and developed a time management web application to help companies track and manage employee working hours efficiently : ',
-      ' - Implemented secure user authentication and access control to protect system functionalities',
-      ' - Built a real-time notification system enabling HR managers to monitor employee activity',
-      '- Developed a comprehensive dashboard for tracking employee working hours and performance',
-      '- Generated statistical reports to identify productivity trends',
-      '- Followed Agile/Scrum methodology, contributing to iterative development, sprint planning, and timely delivery',
-      '- reported progress to the project supervisor',
-    ],
     technologies: [
       'ASP.NET MVC',
       'Microsoft SQL Server',
@@ -153,23 +120,11 @@ const education = [
     ],
     highlight: false,
   },
-  {
+  'bdsi': {
     type: 'work',
     status: 'onsite',
-    title: 'Web Development Intern',
-    company: ' Boite de D\u00e9veloppement et Services Informatiques (BDSI) ',
     companyUrl: 'https://www.bdsi.tn/',
     companyLogo: '/src/assets/img/bdsilogo.jpeg',
-    location: 'Bureau N\u00b012 Cyber Park . B\u00e9ja Tunisie, Beja 9000 ',
-    period: 'January 2020 \u2014 February 2020',
-    description: [
-      'Gathered and analyzed business requirements to design a web-based solution for a driving school management system',
-      'Designed and developed a full-stack web application from scratch',
-      'Built a responsive frontend using Angular',
-      'Developed RESTful APIs and backend services using Node.js',
-      'Implemented core features such as user management, scheduling, and data handling',
-      'Collaborated with team members to ensure application functionality and usability',
-    ],
     technologies: [
       'Angular',
       'Node.js',
@@ -179,18 +134,28 @@ const education = [
     ],
     highlight: false,
   },
-];
+};
 
 function TimelineCard({
-  experience,
+  entryKey,
+  meta,
   index,
   isInView,
 }: {
-  experience: (typeof education)[0];
+  entryKey: string;
+  meta: (typeof educationMeta)[string];
   index: number;
   isInView: boolean;
 }) {
-  const Icon = experience.type === 'work' ? Briefcase : GraduationCap;
+  const { t } = useTranslation();
+  const Icon = meta.type === 'work' ? Briefcase : GraduationCap;
+  const title = t(`education.entries.${entryKey}.title`);
+  const titleExtra = t(`education.entries.${entryKey}.titleExtra`);
+  const company = t(`education.entries.${entryKey}.company`);
+  const companyUrl = meta.companyUrl;
+  const location = t(`education.entries.${entryKey}.location`);
+  const period = t(`education.entries.${entryKey}.period`);
+  const descriptionRaw = t(`education.entries.${entryKey}.description`, { returnObjects: true }) as string | string[];
 
   return (
     <div
@@ -206,16 +171,13 @@ function TimelineCard({
           <div
             className={cn(
               'w-11 h-11 rounded-xl flex items-center justify-center z-10 flex-shrink-0 border transition-all duration-300',
-              experience.type === 'work'
+              meta.type === 'work'
                 ? 'bg-primary/10 border-primary/20 text-primary'
                 : 'bg-secondary/10 border-secondary/20 text-secondary',
             )}
           >
             <Icon size={18} />
           </div>
-          {index < education.length - 1 && (
-            <div className="w-px flex-1 min-h-[20px] bg-border mt-2" />
-          )}
         </div>
 
         {/* Card */}
@@ -223,7 +185,7 @@ function TimelineCard({
           <div
             className={cn(
               'rounded-xl border p-5 transition-all duration-300 card-hover',
-              experience.highlight
+              meta.highlight
                 ? 'border-primary/20 bg-card shadow-sm'
                 : 'border-border bg-card/60',
             )}
@@ -235,38 +197,41 @@ function TimelineCard({
                   <span
                     className={cn(
                       'inline-flex items-center rounded-md px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider',
-                      experience.type === 'work'
+                      meta.type === 'work'
                         ? 'bg-primary/10 text-primary'
                         : 'bg-secondary/10 text-secondary',
                     )}
                   >
-                    {experience.type === 'work' ? 'Experience' : 'Education'}
+                    {meta.type === 'work' ? t('education.typeExperience') : t('education.typeEducation')}
                   </span>
-                  {experience.type === 'work' && experience.status && (
+                  {meta.type === 'work' && meta.status && (
                     <span className="inline-flex items-center gap-1 rounded-md border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
-                      {experience.status === 'onsite' ? (
+                      {meta.status === 'onsite' ? (
                         <Building2 size={12} />
                       ) : (
                         <Globe size={12} />
                       )}
-                      <span className="capitalize">{experience.status}</span>
+                      <span className="capitalize">{meta.status}</span>
                     </span>
                   )}
                 </div>
                 <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                  {experience.period}
+                  {period}
                 </span>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-1.5 leading-snug">
-                  {experience.title}
+                  {title}
+                  {titleExtra && (
+                    <span className="text-sm font-normal text-muted-foreground ml-1">{titleExtra}</span>
+                  )}
                 </h3>
                 <div className="flex items-center gap-2">
-                  {experience.companyLogo && (
+                  {meta.companyLogo && (
                     <img
-                      src={experience.companyLogo}
-                      alt={experience.company}
+                      src={meta.companyLogo}
+                      alt={company}
                       loading="lazy"
                       className="h-6 w-6 object-contain rounded"
                       onError={(e) => {
@@ -274,18 +239,18 @@ function TimelineCard({
                       }}
                     />
                   )}
-                  {experience.companyUrl ? (
+                  {companyUrl ? (
                     <a
-                      href={experience.companyUrl}
+                      href={companyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-medium text-primary hover:underline underline-offset-2 transition-colors"
                     >
-                      {experience.company}
+                      {company}
                     </a>
                   ) : (
                     <p className="text-sm font-medium text-muted-foreground">
-                      {experience.company}
+                      {company}
                     </p>
                   )}
                 </div>
@@ -296,30 +261,30 @@ function TimelineCard({
             <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-1.5">
                 <Calendar size={13} />
-                <span>{experience.period}</span>
+                <span>{period}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <MapPin size={13} />
-                <span>{experience.location}</span>
+                <span>{location}</span>
               </div>
             </div>
 
             {/* Description */}
-            {Array.isArray(experience.description) ? (
+            {Array.isArray(descriptionRaw) ? (
               <ul className="mb-3 space-y-1 text-sm text-foreground/80 leading-relaxed list-disc list-inside">
-                {experience.description.map((item, idx) => (
+                {descriptionRaw.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             ) : (
               <p className="text-sm text-foreground/80 leading-relaxed mb-3">
-                {experience.description}
+                {descriptionRaw}
               </p>
             )}
 
             {/* Tech tags */}
             <div className="flex flex-wrap gap-1.5">
-              {experience.technologies.map((tech) => (
+              {meta.technologies.map((tech) => (
                 <span key={tech} className="tag">
                   {tech}
                 </span>
@@ -333,11 +298,12 @@ function TimelineCard({
 }
 
 export function EducationSection() {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.1 });
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
-  const totalPages = Math.ceil(education.length / itemsPerPage);
-  const paginatedEducation = education.slice(
+  const totalPages = Math.ceil(educationKeys.length / itemsPerPage);
+  const paginatedKeys = educationKeys.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage,
   );
@@ -358,14 +324,13 @@ export function EducationSection() {
           )}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">
-            Journey
+            {t('education.label')}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-            My{' '}
-            <span className="gradient-text">Experience &amp; Journey</span>
+            {t('education.title')}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-            Where I&apos;ve been, what I&apos;ve built
+            {t('education.subtitle')}
           </p>
         </div>
 
@@ -424,10 +389,11 @@ export function EducationSection() {
           )}
 
           <div className="space-y-2">
-            {paginatedEducation.map((exp, index) => (
+            {paginatedKeys.map((key, index) => (
               <TimelineCard
-                key={`${exp.title}-${index}`}
-                experience={exp}
+                key={`${key}-${index}`}
+                entryKey={key}
+                meta={educationMeta[key]}
                 index={index}
                 isInView={isInView}
               />

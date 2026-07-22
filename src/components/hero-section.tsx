@@ -1,22 +1,20 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/primitives';
+import { toast } from '@/hooks/use-toast';
 import image_software from '../assets/img/image.png';
 
 export function HeroSection() {
+  const { t, i18n } = useTranslation();
   const textRef = useRef<HTMLSpanElement>(null);
+  const roles = t('hero.roles', { returnObjects: true }) as string[];
 
   useEffect(() => {
-    const roles = [
-      'Software Engineer',
-      'Full Stack Developer',
-      'IA Integrator',
-      'Problem Solver',
-      'Devops Enthusiast',
-    ];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
     const type = () => {
       const currentRole = roles[roleIndex];
@@ -29,7 +27,7 @@ export function HeroSection() {
           charIndex++;
         }
         if (!isDeleting && charIndex === currentRole.length) {
-          setTimeout(() => {
+          timeoutId = setTimeout(() => {
             isDeleting = true;
           }, 2000);
         } else if (isDeleting && charIndex === 0) {
@@ -38,10 +36,11 @@ export function HeroSection() {
         }
       }
       const speed = isDeleting ? 40 : 80;
-      setTimeout(type, speed);
+      timeoutId = setTimeout(type, speed);
     };
     type();
-  }, []);
+    return () => clearTimeout(timeoutId);
+  }, [i18n.language]);
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/Hana-Romdhani', label: 'GitHub' },
@@ -64,7 +63,7 @@ export function HeroSection() {
               className="text-muted-foreground text-sm font-medium uppercase tracking-[0.2em] mb-5 animate-fade-in-up"
               style={{ animationDelay: '0.2s' }}
             >
-              Hello, I&apos;m
+              {t('hero.greeting')}
             </p>
 
             <h1
@@ -87,8 +86,7 @@ export function HeroSection() {
               className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-6 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: '0.65s' }}
             >
-              Building digital experiences where engineering precision meets
-              beautiful design for humans and AI.
+              {t('hero.subtitle')}
             </p>
 
             <p
@@ -96,7 +94,7 @@ export function HeroSection() {
               style={{ animationDelay: '0.75s' }}
             >
               <span className="inline-flex h-2 w-2 rounded-full bg-primary animate-pulse-soft" />
-              Available for freelance &amp; contract
+              {t('hero.available')}
             </p>
 
             <div
@@ -108,7 +106,7 @@ export function HeroSection() {
                 size="lg"
                 className="btn-gradient px-8 py-6 text-base font-semibold glow-primary"
               >
-                <a href="#projects">View Projects</a>
+                <a href="#projects">{t('hero.viewProjects')}</a>
               </Button>
               <Button
                 asChild
@@ -116,7 +114,7 @@ export function HeroSection() {
                 size="lg"
                 className="border-border hover:bg-muted/50 px-8 py-6 text-base font-medium"
               >
-                <a href="#contact">Contact Me</a>
+                <a href="#contact">{t('hero.contactMe')}</a>
               </Button>
             </div>
 
@@ -124,18 +122,39 @@ export function HeroSection() {
               className="flex items-center justify-center lg:justify-start gap-4 animate-fade-in-up"
               style={{ animationDelay: '0.95s' }}
             >
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const isMailto = social.href.startsWith('mailto:');
+                const email = isMailto ? social.href.replace('mailto:', '') : '';
+
+                if (isMailto) {
+                  return (
+                    <button
+                      key={social.label}
+                      onClick={() => {
+                        navigator.clipboard.writeText(email);
+                        toast('Email copié !');
+                      }}
+                      className="w-10 h-10 rounded-xl bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon size={18} />
+                    </button>
+                  );
+                }
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-xl bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={18} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -162,7 +181,7 @@ export function HeroSection() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
           <a
             href="#about"
-            aria-label="Scroll to about section"
+            aria-label={t('hero.scrollAria')}
             className="flex items-center justify-center w-10 h-10 rounded-full border border-border bg-card/50 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
           >
             <ArrowDown className="text-muted-foreground" size={18} />

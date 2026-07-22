@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   --color-background: var(--background);
@@ -360,4 +360,41 @@
   color: var(--primary);
   font-weight: 200;
   margin-left: 2px;
+}
+
+/* ======================== */
+/* RTL Support              */
+/* ======================== */
+
+[dir="rtl"] .typing-cursor::after {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
+[dir="rtl"] .section-container {
+  direction: rtl;
+}
+
+[dir="rtl"] .glass {
+  direction: rtl;
+}
+
+[dir="rtl"] .glass-card {
+  direction: rtl;
+}
+
+/* RTL timeline adjustments */
+[dir="rtl"] .timeline-line {
+  left: auto;
+  right: 39px;
+}
+
+[dir="rtl"] .timeline-icon {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .timeline-content {
+  padding-left: 0;
+  padding-right: 60px;
 }

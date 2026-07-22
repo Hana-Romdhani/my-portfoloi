@@ -11,6 +11,8 @@ import { Footer } from "./components/footer";
 import { ParticlesBackground } from "./components/ui/particles-background";
 import { CursorGlow } from "./components/ui/cursor-glow";
 import { LoadingScreen } from "./components/ui/loading-screen";
+import { ToastContainer } from "./components/ui/toast-container";
+import "./i18n";
 import "./index.css";
 
 export default function App() {
@@ -29,6 +31,7 @@ export default function App() {
         <EducationSection />
         <ContactSection />
         <Footer />
+        <ToastContainer />
       </main>
     </ThemeProvider>
   );
