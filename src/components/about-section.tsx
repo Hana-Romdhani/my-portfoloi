@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useInView } from '@/hooks/use-in-view';
 import { cn } from '@/lib/utils';
-import image_side from '../assets/img/photi22.png';
+import image_side from '../assets/img/sideimage.jpg';
 import { SectionHeader } from '@/components/ui/primitives/SectionHeader';
 
 export function AboutSection() {
