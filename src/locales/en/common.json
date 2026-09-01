@@ -24,13 +24,23 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Full-stack engineer | AI Integrator | DevOps Enthusiast",
+    "subtitle": "Full-stack engineer · AI integrator · DevOps enthusiast",
     "roleLabel": "Full-stack engineer",
+    "hook": "I build things that survive contact with real users.",
     "paragraphs": [
-      "I'm  Hana Romdhani, a software engineer specialized in web and internet technologies, graduated with honors from ESPRIT in January 2026.",
-      "Through my academic journey and internships, I developed an engineering mindset that drives me to build scalable architectures, solve problems efficiently, and stay focused on quality — while collaborating closely with teams to reach shared goals.",
-      "My standout project is XPlanB — a collaborative document-sharing and well-being platform I took from zero to production during my internship at TSE Consulting. It features real-time collaboration, an AI assistant powered by LLaMA 3.1, productivity analytics, and focus-session tooling, all deployed with a complete DevOps pipeline using React, NestJS, MongoDB, Docker, GitHub Actions, Nginx, and SonarQube.",
-      "Currently open to full-time full-stack or software engineering roles where the bar is high and the work is real."
+      "I'm Hana Romdhani — a full-stack engineer who turns messy problems into clean, scalable systems. ESPRIT graduate (Honors, Jan 2026), obsessed with building things that actually work in production, not just in demos.",
+      "I care about three things: clean architecture, fast problem-solving, and code that doesn't break at 2am. Internships taught me to ship with a team, not just for one.",
+      "My proudest build: <strong>XPlanB</strong>, a collaboration + wellbeing platform I took from blank repo to production during my internship at TSE Consulting. Real-time editing, an AI assistant powered by LLaMA 3.1, focus-session analytics — fully deployed with a real DevOps pipeline.",
+      "Looking for a team that ships fast, cares about craft, and won't settle for \"good enough.\""
+    ],
+    "skills": [
+      "React",
+      "NestJS",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "Nginx",
+      "SonarQube"
     ]
   },
   "skills": {
@@ -82,9 +92,9 @@
     "demoAria": "View live demo",
     "caseStudyAria": "Case Study",
     "items": {
-      "cloudsync": {
-        "title": "CloudSync Pro",
-        "description": "A real-time collaborative workspace platform with advanced file syncing, version control, and team management features."
+      "XPlanB": {
+        "title": "XPlanB",
+        "description": "Development of an Innovative Real-Time Document-Sharing and Personal Well-Being Application."
       },
       "aistudio": {
         "title": "AI Content Studio",

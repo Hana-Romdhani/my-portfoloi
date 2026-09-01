@@ -24,13 +24,23 @@
   },
   "about": {
     "title": "À propos de moi",
-    "subtitle": "Ingénieure full-stack | Intégratrice IA | Passionnée DevOps",
+    "subtitle": "Ingénieure full-stack · Intégratrice IA · Passionnée DevOps",
     "roleLabel": "Ingénieure full-stack",
+    "hook": "Je crée des solutions qui survivent au contact avec de vrais utilisateurs.",
     "paragraphs": [
-      "Je suis Hana Romdhani, ingénieure logiciel spécialisée dans les technologies web et internet, diplômée avec mention de ESPRIT en janvier 2026.",
-      "Au fil de mon parcours académique et de mes stages, j'ai développé une mindset d'ingénieure qui me pousse à concevoir des architectures évolutives, à résoudre les problèmes avec efficacité et à toujours viser l'excellence — tout en collaborant étroitement avec les équipes pour atteindre des objectifs communs.",
-      "Mon projet phare est XPlanB — une plateforme collaborative de partage de documents et de bien-être que j'ai amenée de zéro à la production lors de mon stage chez TSE Consulting. Elle intègre la collaboration en temps réel, un assistant IA propulsé par LLaMA 3.1, des tableaux de productivité et des sessions de concentration, le tout déployé avec un pipeline DevOps complet utilisant React, NestJS, MongoDB, Docker, GitHub Actions, Nginx et SonarQube.",
-      "Je suis actuellement à la recherche d'un poste en ingénierie logiciel ou développement full-stack à temps plein, dans un environnement exigeant et porteur de sens."
+      "Je suis Hana Romdhani — une ingénieure full-stack qui transforme des problèmes complexes en systèmes propres et scalables. Diplômée avec mention de ESPRIT (janvier 2026), je suis obsédée par la création de solutions qui fonctionnent réellement en production, pas seulement en démo.",
+      "Je tiens à trois choses : une architecture propre, la résolution rapide de problèmes, et du code qui ne plante pas à 2 du matin. Mes stages m'ont enseigné à livrer en équipe, pas juste pour moi-même.",
+      "Mon projet le plus fier : <strong>XPlanB</strong>, une plateforme de collaboration et bien-être que j'ai amenée du zéro à la production lors de mon stage chez TSE Consulting. Édition en temps réel, un assistant IA propulsé par LLaMA 3.1, analytics de productivité — tout déployé avec un vrai pipeline DevOps.",
+      "À la recherche d'une équipe qui livre vite, se soucie du métier, et n'accepte pas le \"suffisant\"."
+    ],
+    "skills": [
+      "React",
+      "NestJS",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "Nginx",
+      "SonarQube"
     ]
   },
   "skills": {

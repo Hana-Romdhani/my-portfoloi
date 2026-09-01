@@ -1,5 +1,5 @@
-import { Book, ExternalLink, Github } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Book, ExternalLink, Github } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface Project {
   title: string;
@@ -10,6 +10,7 @@ export interface Project {
   demo?: string;
   caseStudy?: string;
   featured?: boolean;
+  duration?: string;
 }
 
 export function ProjectCard({
@@ -24,8 +25,8 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        'group relative glass-card rounded-xl overflow-hidden transition-all duration-500 h-full',
-        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+        "group relative glass-card rounded-xl overflow-hidden transition-all duration-500 h-full",
+        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
       )}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
@@ -80,9 +81,16 @@ export function ProjectCard({
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-base font-semibold mb-1.5 text-foreground group-hover:text-primary transition-colors duration-300">
-          {project.title}
-        </h3>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+            {project.title}
+          </h3>
+          {project.duration && (
+            <span className="text-xs font-medium text-primary/70 whitespace-nowrap bg-primary/10 px-2 py-1 rounded">
+              {project.duration}
+            </span>
+          )}
+        </div>
         <p className="text-muted-foreground text-sm mb-3 line-clamp-2 leading-relaxed">
           {project.description}
         </p>
@@ -99,3 +107,4 @@ export function ProjectCard({
 }
 
 export default ProjectCard;
+

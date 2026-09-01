@@ -1,22 +1,22 @@
-import { useTranslation } from 'react-i18next';
-import { useInView } from '@/hooks/use-in-view';
-import { cn } from '@/lib/utils';
-import image_side from '../assets/img/sideimage.jpg';
-import { SectionHeader } from '@/components/ui/primitives/SectionHeader';
+import { useTranslation } from "react-i18next";
+import { useInView } from "@/hooks/use-in-view";
+import { cn } from "@/lib/utils";
+import image_side from "../assets/img/sideimage.jpg";
+import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
 
 export function AboutSection() {
   const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
 
-  const paragraphs = t('about.paragraphs', { returnObjects: true }) as string[];
+  const paragraphs = t("about.paragraphs", { returnObjects: true }) as string[];
 
   return (
     <section id="about" className="py-28 sm:py-32 relative">
       <div className="section-container" ref={ref}>
         <div
           className={cn(
-            'transition-all duration-700',
-            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+            "transition-all duration-700",
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
           )}
         >
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16 items-center">
@@ -33,7 +33,7 @@ export function AboutSection() {
                 </div>
                 <div className="absolute bottom-6 left-6 z-10">
                   <p className="mb-1 text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                    {t('about.roleLabel')}
+                    {t("about.roleLabel")}
                   </p>
                   <h2 className="text-xl font-bold text-foreground">
                     Hana Romdhani
@@ -48,15 +48,33 @@ export function AboutSection() {
             {/* Text column */}
             <div className="space-y-6 text-left order-1 lg:order-2">
               <SectionHeader
-                title={t('about.title')}
-                subtitle={t('about.subtitle')}
+                title={t("about.title")}
+                subtitle={t("about.subtitle")}
               />
+
+              <p className="text-lg sm:text-xl font-semibold text-primary leading-relaxed">
+                {t("about.hook")}
+              </p>
 
               <div className="space-y-4 text-muted-foreground leading-relaxed text-[15px]">
                 <p dangerouslySetInnerHTML={{ __html: paragraphs[0] }} />
                 <p>{paragraphs[1]}</p>
-                <p>{paragraphs[2]}</p>
+                <p dangerouslySetInnerHTML={{ __html: paragraphs[2] }} />
                 <p>{paragraphs[3]}</p>
+              </div>
+
+              {/* Skills Tags */}
+              <div className="flex flex-wrap gap-2 pt-4">
+                {(t("about.skills", { returnObjects: true }) as string[]).map(
+                  (skill) => (
+                    <span
+                      key={skill}
+                      className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:border-primary/50 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ),
+                )}
               </div>
             </div>
           </div>
@@ -65,3 +83,4 @@ export function AboutSection() {
     </section>
   );
 }
+
