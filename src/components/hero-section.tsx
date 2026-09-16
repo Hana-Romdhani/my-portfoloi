@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/primitives";
 import { toast } from "@/hooks/use-toast";
-import HeroScene3D from "./ui/hero-scene-3d";
 
 export function HeroSection() {
   const { t, i18n } = useTranslation();

@@ -91,30 +91,99 @@
     "githubAria": "View GitHub repository",
     "demoAria": "View live demo",
     "caseStudyAria": "Case Study",
+    "caseStudy": {
+      "label": "Case Study",
+      "duration": "Duration",
+      "role": "Role",
+      "MetodoloSize": "Team Size",
+      "technologiesUsed": "Technologies Used",
+      "resources": "Project Resources",
+      "liveDemo": "View Live Demo",
+      "github": "GitHub Repository",
+      "back": "Back to Projects",
+      "closeLabel": "Close case study",
+      "report": {
+        "title": "PFE Report",
+        "description": "Complete technical report detailing the analysis, design, implementation, and evaluation.",
+        "action": "View PDF"
+      },
+      "presentation": {
+        "title": "PFE Presentation",
+        "description": "Slide presentation covering the project overview, features, architecture, and results.",
+        "action": "View Presentation"
+      },
+      "video": {
+        "title": "Demonstration Video",
+        "description": "Watch this project in action with a full demonstration of the main features.",
+        "action": "Watch Video"
+      }
+    },
     "items": {
       "XPlanB": {
         "title": "XPlanB",
-        "description": "Development of an Innovative Real-Time Document-Sharing and Personal Well-Being Application."
+        "description": "Development of an Innovative Real-Time Document-Sharing and Personal Well-Being Application.",
+        "caseStudy": {
+          "subtitle": "Intelligent Document Sharing & Personal Well-being Platform",
+          "description": [
+            "XPlanB was developed as my final year engineering project (PFE). It aims to revolutionize the way students and professionals manage, share, and collaborate on documents while taking care of their well-being and productivity.",
+            "The platform integrates real-time collaboration, AI assistance powered by LLaMA 3.1, document management, and productivity tools such as a Pomodoro timer and analytics."
+          ]
+        }
       },
       "aistudio": {
         "title": "AI Content Studio",
-        "description": "An intelligent content creation platform powered by machine learning for generating, editing, and optimizing digital content."
+        "description": "An intelligent content creation platform powered by machine learning for generating, editing, and optimizing digital content.",
+        "caseStudy": {
+          "subtitle": "AI-Powered Content Generation & Optimization",
+          "description": [
+            "AI Content Studio is an intelligent platform that leverages machine learning to generate, edit, and optimize digital content at scale.",
+            "It combines prompt-driven generation, editorial workflows, and performance analytics to help teams produce better content faster."
+          ]
+        }
       },
       "fintrack": {
         "title": "FinTrack Dashboard",
-        "description": "A comprehensive financial tracking dashboard with real-time analytics, budget planning, and investment insights."
+        "description": "A comprehensive financial tracking dashboard with real-time analytics, budget planning, and investment insights.",
+        "caseStudy": {
+          "subtitle": "Real-Time Financial Analytics Platform",
+          "description": [
+            "FinTrack is a comprehensive financial tracking dashboard providing real-time analytics, budget planning, and investment insights.",
+            "It aggregates data from multiple sources into clear visualizations so users can make confident financial decisions."
+          ]
+        }
       },
       "ecolife": {
         "title": "EcoLife Mobile",
-        "description": "A sustainability-focused mobile app helping users track and reduce their carbon footprint through gamification."
+        "description": "A sustainability-focused mobile app helping users track and reduce their carbon footprint through gamification.",
+        "caseStudy": {
+          "subtitle": "Sustainable Living & Carbon Footprint Tracking",
+          "description": [
+            "EcoLife is a sustainability-focused mobile app that helps users track and reduce their carbon footprint through engaging gamification.",
+            "It turns everyday eco-friendly actions into measurable impact, motivating lasting behavioral change."
+          ]
+        }
       },
       "devconnect": {
         "title": "DevConnect Hub",
-        "description": "A professional networking platform designed specifically for developers with code collaboration and mentorship features."
+        "description": "A professional networking platform designed specifically for developers with code collaboration and mentorship features.",
+        "caseStudy": {
+          "subtitle": "Developer-Focused Professional Networking",
+          "description": [
+            "DevConnect is a professional networking platform built specifically for developers, with code collaboration and mentorship at its core.",
+            "It connects engineers with peers and mentors while enabling collaborative workflows directly from the profile."
+          ]
+        }
       },
       "smarthome": {
         "title": "SmartHome Control",
-        "description": "An IoT dashboard for managing smart home devices with automation rules, energy monitoring, and voice control."
+        "description": "An IoT dashboard for managing smart home devices with automation rules, energy monitoring, and voice control.",
+        "caseStudy": {
+          "subtitle": "Unified IoT Smart Home Management",
+          "description": [
+            "SmartHome Control is an IoT dashboard for managing smart home devices with automation rules, energy monitoring, and voice control.",
+            "It provides a single, intuitive interface for controlling and automating devices across the home."
+          ]
+        }
       }
     }
   },

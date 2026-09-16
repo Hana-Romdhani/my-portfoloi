@@ -1,5 +1,17 @@
 import { Book, ExternalLink, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+
+export interface ProjectResources {
+  report?: string;
+  presentation?: string;
+  video?: string;
+}
+
+export interface CaseStudyContent {
+  subtitle?: string;
+  description?: string[];
+}
 
 export interface Project {
   title: string;
@@ -11,17 +23,26 @@ export interface Project {
   caseStudy?: string;
   featured?: boolean;
   duration?: string;
+  role?: string;
+  teamSize?: string;
+  tagline?: string;
+  resources?: ProjectResources;
+  caseStudyContent?: CaseStudyContent;
 }
 
 export function ProjectCard({
   project,
   index,
   isInView,
+  onCaseStudy,
 }: {
   project: Project;
   index: number;
   isInView: boolean;
+  onCaseStudy?: () => void;
 }) {
+  const { t } = useTranslation();
+
   return (
     <div
       className={cn(
@@ -49,7 +70,7 @@ export function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
-              aria-label="View GitHub repository"
+              aria-label={t("projects.githubAria")}
             >
               <Github size={18} />
             </a>
@@ -60,18 +81,27 @@ export function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
-              aria-label="View live demo"
+              aria-label={t("projects.demoAria")}
             >
               <ExternalLink size={18} />
             </a>
           ) : null}
-          {project.caseStudy ? (
+          {onCaseStudy ? (
+            <button
+              type="button"
+              onClick={onCaseStudy}
+              className="p-2.5 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
+              aria-label={t("projects.caseStudyAria")}
+            >
+              <Book size={18} />
+            </button>
+          ) : project.caseStudy ? (
             <a
               href={project.caseStudy}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-card/90 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
-              aria-label="Case Study"
+              aria-label={t("projects.caseStudyAria")}
             >
               <Book size={18} />
             </a>

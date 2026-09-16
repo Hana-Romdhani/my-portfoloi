@@ -91,30 +91,99 @@
     "githubAria": "Voir le dépôt GitHub",
     "demoAria": "Voir la démo en ligne",
     "caseStudyAria": "Étude de cas",
+    "caseStudy": {
+      "label": "Étude de cas",
+      "duration": "Durée",
+      "role": "Rôle",
+      "teamSize": "Taille de l'équipe",
+      "technologiesUsed": "Technologies utilisées",
+      "resources": "Ressources du projet",
+      "liveDemo": "Voir la démo en direct",
+      "github": "Dépôt GitHub",
+      "back": "Retour aux projets",
+      "closeLabel": "Fermer l'étude de cas",
+      "report": {
+        "title": "Rapport PFE",
+        "description": "Rapport technique complet détaillant l'analyse, la conception, l'implémentation et l'évaluation.",
+        "action": "Voir le PDF"
+      },
+      "presentation": {
+        "title": "Présentation PFE",
+        "description": "Présentation de diapositives couvrant la vue d'ensemble, les fonctionnalités, l'architecture et les résultats.",
+        "action": "Voir la présentation"
+      },
+      "video": {
+        "title": "Vidéo de démonstration",
+        "description": "Regardez ce projet en action avec une démonstration complète des principales fonctionnalités.",
+        "action": "Regarder la vidéo"
+      }
+    },
     "items": {
-      "cloudsync": {
-        "title": "CloudSync Pro",
-        "description": "Plateforme collaborative en temps réel avec synchronisation avancée de fichiers, contrôle de version et gestion d'équipe."
+      "XPlanB": {
+        "title": "XPlanB",
+        "description": "Développement d'une application innovante de partage de documents en temps réel et de bien-être personnel.",
+        "caseStudy": {
+          "subtitle": "Plateforme intelligente de partage de documents et de bien-être personnel",
+          "description": [
+            "XPlanB a été développé comme mon projet de fin d'études (PFE). Il vise à révolutionner la façon dont les étudiants et les professionnels gèrent, partagent et collaborent sur des documents tout en prenant soin de leur bien-être et de leur productivité.",
+            "La plateforme intègre la collaboration en temps réel, une assistance IA propulsée par LLaMA 3.1, la gestion de documents et des outils de productivité tels qu'un minuteur Pomodoro et des analyses."
+          ]
+        }
       },
       "aistudio": {
         "title": "AI Content Studio",
-        "description": "Plateforme intelligente de création de contenu propulsée par le machine learning pour générer, éditer et optimiser du contenu numérique."
+        "description": "Plateforme intelligente de création de contenu propulsée par le machine learning pour générer, éditer et optimiser du contenu numérique.",
+        "caseStudy": {
+          "subtitle": "Génération et optimisation de contenu propulsées par l'IA",
+          "description": [
+            "AI Content Studio est une plateforme intelligente qui exploite le machine learning pour générer, éditer et optimiser du contenu numérique à grande échelle.",
+            "Elle combine la génération par prompts, des flux de travail éditoriaux et des analyses de performance pour aider les équipes à produire un meilleur contenu plus rapidement."
+          ]
+        }
       },
       "fintrack": {
         "title": "FinTrack Dashboard",
-        "description": "Tableau de bord complet de suivi financier avec analyses en temps réel, planification budgétaire et perspectives d'investissement."
+        "description": "Tableau de bord complet de suivi financier avec analyses en temps réel, planification budgétaire et perspectives d'investissement.",
+        "caseStudy": {
+          "subtitle": "Plateforme d'analyse financière en temps réel",
+          "description": [
+            "FinTrack est un tableau de bord complet de suivi financier offrant des analyses en temps réel, une planification budgétaire et des perspectives d'investissement.",
+            "Il regroupe des données provenant de plusieurs sources en visualisations claires pour permettre aux utilisateurs de prendre des décisions financières en confiance."
+          ]
+        }
       },
       "ecolife": {
         "title": "EcoLife Mobile",
-        "description": "Application mobile dédiée au développement durable, aidant les utilisateurs à suivre et réduire leur empreinte carbone grâce à la gamification."
+        "description": "Application mobile dédiée au développement durable, aidant les utilisateurs à suivre et réduire leur empreinte carbone grâce à la gamification.",
+        "caseStudy": {
+          "subtitle": "Vie durable et suivi de l'empreinte carbone",
+          "description": [
+            "EcoLife est une application mobile dédiée au développement durable qui aide les utilisateurs à suivre et réduire leur empreinte carbone grâce à une gamification engageante.",
+            "Elle transforme les actions éco-responsables quotidiennes en impact mesurable, motivant un changement de comportement durable."
+          ]
+        }
       },
       "devconnect": {
         "title": "DevConnect Hub",
-        "description": "Plateforme de networking professionnel conçue spécifiquement pour les développeurs, avec des fonctionnalités de collaboration et de mentorat."
+        "description": "Plateforme de networking professionnel conçue spécifiquement pour les développeurs, avec des fonctionnalités de collaboration et de mentorat.",
+        "caseStudy": {
+          "subtitle": "Réseau professionnel dédié aux développeurs",
+          "description": [
+            "DevConnect est une plateforme de networking professionnel conçue spécifiquement pour les développeurs, avec la collaboration de code et le mentorat au cœur.",
+            "Elle connecte les ingénieurs à leurs pairs et mentors tout en permettant des flux de travail collaboratifs directement depuis le profil."
+          ]
+        }
       },
       "smarthome": {
         "title": "SmartHome Control",
-        "description": "Tableau de bord IoT pour la gestion des appareils domestiques connectés, avec règles d'automatisation, suivi énergétique et commande vocale."
+        "description": "Tableau de bord IoT pour la gestion des appareils domestiques connectés, avec règles d'automatisation, suivi énergétique et commande vocale.",
+        "caseStudy": {
+          "subtitle": "Gestion unifiée des appareils connectés IoT",
+          "description": [
+            "SmartHome Control est un tableau de bord IoT pour la gestion des appareils domestiques connectés, avec règles d'automatisation, suivi énergétique et commande vocale.",
+            "Il offre une interface unique et intuitive pour contrôler et automatiser les appareils de toute la maison."
+          ]
+        }
       }
     }
   },

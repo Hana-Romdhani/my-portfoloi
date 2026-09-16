@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "@/hooks/use-in-view";
 import { cn } from "@/lib/utils";
-import { CardGrid, ProjectCard } from "@/components/ui/primitives";
+import {
+  CardGrid,
+  ProjectCard,
+  type Project,
+  type ProjectResources,
+} from "@/components/ui/primitives";
+import { ProjectCaseStudy } from "@/components/projects/ProjectCaseStudy";
 import xplanBImage from "@/assets/img/xplanb_commercial_banner.png";
 
 const projectKeys = [
@@ -19,9 +26,12 @@ const projectImages: Record<
     tags: string[];
     github: string;
     demo: string;
-    caseStudy: string;
     featured: boolean;
     duration?: string;
+    role?: string;
+    MetodoloSize?: string;
+    tagline?: string;
+    resources?: ProjectResources;
   }
 > = {
   XPlanB: {
@@ -45,9 +55,16 @@ const projectImages: Record<
     ],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: true,
     duration: "7 months",
+    role: "Full Stack Engineer",
+    MetodoloSize: "4 members",
+    tagline: "The best decision in tough times",
+    resources: {
+      report: "/documents/xplanb-pfe-report.pdf",
+      presentation: "/documents/xplanb-pfe-presentation.pdf",
+      video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID",
+    },
   },
   aistudio: {
     image:
@@ -55,7 +72,6 @@ const projectImages: Record<
     tags: ["React", "Python", "TensorFlow", "AWS"],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: true,
     duration: "3 months",
   },
@@ -65,7 +81,6 @@ const projectImages: Record<
     tags: ["React", "Node.js", "MongoDB", "Chart.js"],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: false,
     duration: "2 months",
   },
@@ -75,7 +90,6 @@ const projectImages: Record<
     tags: ["Flutter", "Firebase", "Dart", "Google Maps"],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: false,
     duration: "3 months",
   },
@@ -85,7 +99,6 @@ const projectImages: Record<
     tags: ["Next.js", "GraphQL", "Prisma", "Redis"],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: false,
     duration: "2 months",
   },
@@ -95,7 +108,6 @@ const projectImages: Record<
     tags: ["React", "Node.js", "MQTT", "Raspberry Pi"],
     github: "https://github.com",
     demo: "https://example.com",
-    caseStudy: "https://example.com/case-study",
     featured: false,
     duration: "2 months",
   },
@@ -104,10 +116,28 @@ const projectImages: Record<
 export function ProjectsSection() {
   const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
+
+  const openCaseStudy = (project: Project) => {
+    setSelectedProject(project);
+    setIsCaseStudyOpen(true);
+  };
+
+  const closeCaseStudy = () => {
+    setIsCaseStudyOpen(false);
+    setSelectedProject(null);
+  };
 
   const projects = projectKeys.map((key) => ({
     title: t(`projects.items.${key}.title`),
     description: t(`projects.items.${key}.description`),
+    caseStudyContent: {
+      subtitle: t(`projects.items.${key}.caseStudy.subtitle`),
+      description: t(`projects.items.${key}.caseStudy.description`, {
+        returnObjects: true,
+      }) as string[],
+    },
     ...projectImages[key],
   }));
 
@@ -138,10 +168,17 @@ export function ProjectsSection() {
               project={project}
               index={index}
               isInView={isInView}
+              onCaseStudy={() => openCaseStudy(project)}
             />
           ))}
         </CardGrid>
       </div>
+
+      <ProjectCaseStudy
+        project={selectedProject}
+        open={isCaseStudyOpen}
+        onClose={closeCaseStudy}
+      />
     </section>
   );
 }
