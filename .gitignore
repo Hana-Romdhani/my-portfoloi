@@ -26,7 +26,11 @@ dist-ssr
 
 # Vite
 .vite
+.vscode
+# Environment variables
 .env
+.env.*
+!.env.example
 # Testing
 coverage
 
